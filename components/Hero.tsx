@@ -24,15 +24,15 @@ export default function Hero() {
           
           {/* Status Badges */}
           <div className="flex flex-wrap gap-2 items-center">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-neutral-900 text-neutral-200 border border-neutral-700">
+              <span className="w-2 h-2 rounded-full bg-neutral-300 animate-ping"></span>
               2 Projects Currently In Active Development
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-neutral-900 text-neutral-300 border border-neutral-800">
-              <Award className="w-3.5 h-3.5 text-purple-400" /> CS Graduate
+              <Award className="w-3.5 h-3.5 text-neutral-400" /> CS Graduate
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-neutral-900 text-neutral-300 border border-neutral-800">
-              <ShieldCheck className="w-3.5 h-3.5 text-blue-400" /> IT & Networking Certified
+              <ShieldCheck className="w-3.5 h-3.5 text-neutral-400" /> IT & Networking Certified
             </span>
           </div>
 
@@ -43,14 +43,14 @@ export default function Hero() {
           </h1>
 
           <p className="text-neutral-400 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
-            Computer Science graduate specializing in full-stack web applications, custom automated trading bots, enterprise e-commerce platforms like <a href="https://natentertainment.org/" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline font-medium hover:text-blue-300">natentertainment.org</a>, and robust IT hardware/networking infrastructure.
+            Computer Science graduate specializing in full-stack web applications, custom automated trading bots, enterprise e-commerce platforms like <a href="https://natentertainment.org/" target="_blank" rel="noopener noreferrer" className="text-white underline font-medium hover:text-neutral-300">natentertainment.org</a>, and robust IT hardware/networking infrastructure.
           </p>
 
           {/* Action CTAs */}
           <div className="flex flex-wrap gap-4 pt-2 w-full sm:w-auto">
             <a
               href="#projects"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-blue-600/25"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-sm transition-all duration-200 shadow-lg shadow-white/10"
             >
               Explore All Projects <ArrowUpRight className="w-4 h-4" />
             </a>
@@ -60,7 +60,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 font-medium text-sm border border-neutral-800 transition-all duration-200"
             >
-              Visit NatEntertainment.org <ExternalLink className="w-4 h-4 text-purple-400" />
+              Visit NatEntertainment.org <ExternalLink className="w-4 h-4 text-neutral-400" />
             </a>
           </div>
 
@@ -71,8 +71,8 @@ export default function Hero() {
               <div className="text-xs text-neutral-500 font-mono uppercase mt-0.5">Live Projects</div>
             </div>
             <div>
-              <div className="text-2xl font-bold font-outfit text-emerald-400 flex items-center gap-1">
-                2 <Flame className="w-4 h-4 text-amber-500" />
+              <div className="text-2xl font-bold font-outfit text-white flex items-center gap-1">
+                2 <Flame className="w-4 h-4 text-neutral-400" />
               </div>
               <div className="text-xs text-neutral-500 font-mono uppercase mt-0.5">Ongoing Work</div>
             </div>
@@ -101,8 +101,8 @@ export default function Hero() {
               <div>
                 <h4 className="text-sm font-semibold text-white font-outfit">Natnael Teferi</h4>
                 <p className="text-xs text-neutral-400">Software Engineer & Founder</p>
-                <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-emerald-400">
-                  <Terminal className="w-3 h-3" /> Ready for Deployment
+                <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-neutral-300">
+                  <Terminal className="w-3 h-3 text-neutral-400" /> Ready for Deployment
                 </div>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default function Hero() {
               href="https://natentertainment.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-mono hover:bg-blue-500/20 transition-colors hidden sm:block"
+              className="px-3 py-1.5 rounded-lg bg-neutral-800 text-neutral-200 border border-neutral-700 text-xs font-mono hover:bg-neutral-700 transition-colors hidden sm:block"
             >
               natentertainment.org ↗
             </a>

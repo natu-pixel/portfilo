@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, Code, Sparkles, Flame, Clock, CheckCircle, Globe } from "lucide-react";
+import { ExternalLink, Sparkles, Clock, Globe } from "lucide-react";
 import Image from "next/image";
 
 const categories = ["All", "Flagship & E-Commerce", "Automation & Bots", "Applications", "Ongoing Projects"];
@@ -144,9 +144,9 @@ export default function Projects() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-mono uppercase tracking-widest text-blue-400">Featured Work & Live Projects</span>
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> 2 Active Developments
+            <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">Featured Work & Live Projects</span>
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-neutral-900 text-neutral-300 border border-neutral-800 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 animate-ping"></span> 2 Active Developments
             </span>
           </div>
           <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
@@ -161,7 +161,7 @@ export default function Projects() {
           href="https://natentertainment.org/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 px-4 py-2.5 rounded-xl transition-colors shadow-lg shadow-blue-600/25 self-start md:self-auto"
+          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-black bg-white hover:bg-neutral-200 px-4 py-2.5 rounded-xl font-semibold transition-colors shadow-lg shadow-white/10 self-start md:self-auto"
         >
           <Globe className="w-4 h-4" /> Live Website: natentertainment.org ↗
         </a>
@@ -175,7 +175,7 @@ export default function Projects() {
             onClick={() => setActiveCategory(cat)}
             className={`px-4 py-2 rounded-xl text-xs font-mono transition-all ${
               activeCategory === cat
-                ? "bg-blue-600 text-white font-semibold shadow-md shadow-blue-600/20"
+                ? "bg-white text-black font-semibold shadow-md shadow-white/10"
                 : "bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800"
             }`}
           >
@@ -191,9 +191,9 @@ export default function Projects() {
             key={index}
             className={`flex flex-col rounded-3xl bg-neutral-900/40 border overflow-hidden transition-all duration-300 group ${
               project.isFlagship
-                ? "border-blue-500/50 shadow-xl shadow-blue-500/10 lg:col-span-2 lg:flex-row"
+                ? "border-neutral-700 shadow-xl shadow-white/5 lg:col-span-2 lg:flex-row"
                 : project.isOngoing
-                ? "border-amber-500/40 bg-neutral-900/60"
+                ? "border-neutral-700 bg-neutral-900/60"
                 : "border-neutral-800/80 hover:border-neutral-700"
             }`}
           >
@@ -212,17 +212,15 @@ export default function Projects() {
               <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                 <span className={`px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider backdrop-blur-md border ${
                   project.isFlagship
-                    ? "bg-blue-600 text-white border-blue-400 font-bold"
-                    : project.isOngoing
-                    ? "bg-amber-500/20 text-amber-400 border-amber-500/40"
-                    : "bg-neutral-950/80 text-blue-400 border-neutral-800"
+                    ? "bg-white text-black border-white font-bold"
+                    : "bg-neutral-950/80 text-neutral-300 border-neutral-800"
                 }`}>
                   {project.isFlagship ? "★ Flagship Live Website" : project.category}
                 </span>
 
                 {project.isOngoing && (
-                  <span className="px-3 py-1 rounded-full text-[11px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/30 backdrop-blur-md flex items-center gap-1.5">
-                    <Clock className="w-3 h-3 text-amber-400 animate-spin" /> In Active Development
+                  <span className="px-3 py-1 rounded-full text-[11px] font-mono bg-neutral-900/90 text-neutral-300 border border-neutral-700 backdrop-blur-md flex items-center gap-1.5">
+                    <Clock className="w-3 h-3 text-neutral-400 animate-spin" /> In Active Development
                   </span>
                 )}
               </div>
@@ -234,7 +232,7 @@ export default function Projects() {
             }`}>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-outfit text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className="font-outfit text-2xl font-bold text-white group-hover:text-neutral-300 transition-colors">
                     {project.title}
                   </h3>
                 </div>
@@ -248,11 +246,11 @@ export default function Projects() {
                   <div className="pt-2">
                     <div className="flex justify-between text-[11px] font-mono text-neutral-400 mb-1">
                       <span>Development Progress</span>
-                      <span className="text-amber-400 font-bold">{project.progressPercent}%</span>
+                      <span className="text-neutral-200 font-bold">{project.progressPercent}%</span>
                     </div>
                     <div className="w-full h-2 bg-neutral-950 rounded-full overflow-hidden border border-neutral-800">
                       <div
-                        className="h-full bg-gradient-to-r from-amber-500 to-emerald-400 rounded-full transition-all duration-1000"
+                        className="h-full bg-gradient-to-r from-neutral-500 to-white rounded-full transition-all duration-1000"
                         style={{ width: `${project.progressPercent}%` }}
                       ></div>
                     </div>
@@ -263,7 +261,7 @@ export default function Projects() {
                 <ul className="space-y-1.5 pt-2 text-xs text-neutral-300 font-mono">
                   {project.highlights.map((item, hIdx) => (
                     <li key={hIdx} className="flex items-center gap-2">
-                      <span className={`w-1.5 h-1.5 rounded-full ${project.isFlagship ? "bg-blue-400" : project.isOngoing ? "bg-amber-400" : "bg-blue-500"}`}></span> {item}
+                      <span className="w-1.5 h-1.5 rounded-full bg-neutral-400"></span> {item}
                     </li>
                   ))}
                 </ul>
@@ -289,10 +287,8 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className={`inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg transition-colors ${
                       project.isFlagship
-                        ? "bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30"
-                        : project.isOngoing
-                        ? "bg-neutral-800 hover:bg-neutral-700 text-amber-300 border border-amber-500/30"
-                        : "bg-blue-600 hover:bg-blue-500 text-white"
+                        ? "bg-white hover:bg-neutral-200 text-black shadow-lg shadow-white/10"
+                        : "bg-neutral-800 hover:bg-neutral-700 text-white border border-neutral-700"
                     }`}
                   >
                     {project.liveLabel} <ExternalLink className="w-3.5 h-3.5" />

@@ -2,17 +2,17 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import SkillsMatrix from "@/components/SkillsMatrix";
 import Projects from "@/components/Projects";
-import { Mail, MessageCircle, Send, Terminal, Phone, MapPin, Award } from "lucide-react";
+import { Mail, MessageCircle, Send } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-blue-500/30 selection:text-blue-200">
+    <div className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-white/20 selection:text-white">
       
       {/* Sticky Header Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <a href="#" className="font-outfit text-lg font-bold text-white tracking-tight flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-blue-500"></span> Natnael Teferi
+            <span className="w-2.5 h-2.5 rounded-full bg-white"></span> Natnael Teferi
           </a>
 
           <nav className="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-wider text-neutral-400">
@@ -25,7 +25,7 @@ export default function Home() {
             href="https://t.me/NATENTERTAINMENTSUPPORT"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-xl transition-all shadow-md shadow-blue-600/20"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-black bg-white hover:bg-neutral-200 px-4 py-2 rounded-xl transition-all shadow-md shadow-white/10"
           >
             Get In Touch
           </a>
@@ -41,9 +41,9 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-800/60">
-          <div className="rounded-3xl bg-gradient-to-b from-neutral-900/80 to-neutral-950 border border-neutral-800 p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+          <div className="rounded-3xl bg-neutral-900/60 border border-neutral-800 p-8 sm:p-12 lg:p-16 relative overflow-hidden">
             <div className="max-w-2xl relative z-10">
-              <span className="text-xs font-mono uppercase tracking-widest text-blue-400">Direct Contact</span>
+              <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">Direct Contact</span>
               <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-2">
                 Have a project or technical challenge? Let's discuss.
               </h2>
@@ -55,9 +55,9 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
                 <a
                   href="mailto:natikuzmi@gmail.com"
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-blue-500/50 transition-colors group"
+                  className="flex items-center gap-3 p-4 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-neutral-700 transition-colors group"
                 >
-                  <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-400 group-hover:scale-105 transition-transform">
+                  <div className="p-2.5 rounded-xl bg-neutral-800 text-white group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -70,9 +70,9 @@ export default function Home() {
                   href="https://wa.me/251945653317"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-emerald-500/50 transition-colors group"
+                  className="flex items-center gap-3 p-4 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-neutral-700 transition-colors group"
                 >
-                  <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:scale-105 transition-transform">
+                  <div className="p-2.5 rounded-xl bg-neutral-800 text-white group-hover:scale-105 transition-transform">
                     <MessageCircle className="w-5 h-5" />
                   </div>
                   <div>
@@ -85,9 +85,9 @@ export default function Home() {
                   href="https://t.me/NATENTERTAINMENTSUPPORT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-sky-500/50 transition-colors group"
+                  className="flex items-center gap-3 p-4 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-neutral-700 transition-colors group"
                 >
-                  <div className="p-2.5 rounded-xl bg-sky-500/10 text-sky-400 group-hover:scale-105 transition-transform">
+                  <div className="p-2.5 rounded-xl bg-neutral-800 text-white group-hover:scale-105 transition-transform">
                     <Send className="w-5 h-5" />
                   </div>
                   <div>

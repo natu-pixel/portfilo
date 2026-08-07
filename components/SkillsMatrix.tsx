@@ -1,28 +1,22 @@
 "use client";
 
-import { Code2, Cpu, Globe, Layers, Shield, Terminal } from "lucide-react";
+import { Code2, Cpu, Shield } from "lucide-react";
 
 const skillCategories = [
   {
     title: "Software & Web Development",
     icon: Code2,
     skills: ["React / Next.js", "TypeScript", "Node.js", "Python Automation", "Tailwind CSS", "REST APIs", "Git / GitHub"],
-    color: "text-blue-400",
-    bgColor: "bg-blue-500/10",
   },
   {
     title: "Hardware & Maintenance",
     icon: Cpu,
     skills: ["PC Diagnostics & Assembly", "Component Replacement", "System Benchmarking", "BIOS/UEFI Configuration", "Thermal Management", "Disaster Recovery"],
-    color: "text-emerald-400",
-    bgColor: "bg-emerald-500/10",
   },
   {
     title: "Networking & Security",
     icon: Shield,
     skills: ["Router & Switch Config", "LAN / WAN Design", "TCP/IP & Subnetting", "IPTV Stream Delivery", "Firewall Rules", "Network Troubleshooting"],
-    color: "text-purple-400",
-    bgColor: "bg-purple-500/10",
   },
 ];
 
@@ -32,7 +26,7 @@ export default function SkillsMatrix() {
       
       {/* Header */}
       <div className="max-w-3xl mb-16">
-        <span className="text-xs font-mono uppercase tracking-widest text-purple-400">Technical Capability</span>
+        <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">Technical Capability</span>
         <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-white mt-2">
           Skills & Technologies Matrix
         </h2>
@@ -48,7 +42,7 @@ export default function SkillsMatrix() {
           return (
             <div key={idx} className="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80">
               <div className="flex items-center gap-3 mb-6">
-                <div className={`p-2.5 rounded-xl ${cat.bgColor} ${cat.color}`}>
+                <div className="p-2.5 rounded-xl bg-neutral-800 text-white">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-outfit text-base font-semibold text-white">{cat.title}</h3>
