@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Natnael Teferi – Full-Stack Developer & Software Engineer",
     description: "I build fast, performant web applications, trading bots, and enterprise IT infrastructure.",
-    url: "https://portfilo.natikuzmi.workers.dev",
+    url: "https://natentertainment.org/",
     siteName: "Natnael Teferi Portfolio",
     images: [
       {
-        url: "https://portfilo.natikuzmi.workers.dev/ceo.jpg",
+        url: "/ceo.jpg",
         width: 1200,
         height: 630,
         alt: "Natnael Teferi Portfolio",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Natnael Teferi – Full-Stack Developer",
     description: "Software engineer building performant, accessible web experiences.",
-    images: ["https://portfilo.natikuzmi.workers.dev/ceo.jpg"],
+    images: ["/ceo.jpg"],
   },
 };
 
@@ -46,7 +46,7 @@ export default function RootLayout({
     "@type": "Person",
     name: "Natnael Teferi",
     jobTitle: "Full-Stack Software Engineer",
-    url: "https://portfilo.natikuzmi.workers.dev",
+    url: "https://natentertainment.org/",
     sameAs: [
       "https://t.me/NATENTERTAINMENTSUPPORT",
       "https://wa.me/251945653317",
@@ -58,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} scroll-smooth`}>
       <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivan-vasiljevic/aspekta@latest/Aspekta-Variable/aspekta.css" />
+        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/aeonik" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1,9 +1,9 @@
-@import url("https://cdn.jsdelivr.net/gh/ivan-vasiljevic/aspekta@latest/Aspekta-Variable/aspekta.css");
+@import url('https://fonts.cdnfonts.com/css/aeonik');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Aspekta", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-outfit: "Aspekta", var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Aeonik", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-outfit: "Aeonik", var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -12,7 +12,7 @@
 }
 
 body {
-  font-family: "Aspekta", sans-serif;
+  font-family: "Aeonik", sans-serif;
 }
 
 /* Hide scrollbar for Lenis smooth scrolling feel */

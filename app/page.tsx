@@ -68,7 +68,7 @@ export default function Home() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-neutral-500">Email Address</div>
+                    <div className="text-xs font-mono text-neutral-500">Email Address (Natnael Teferi)</div>
                     <div className="text-sm font-semibold text-neutral-900">natikuzmi@gmail.com</div>
                   </div>
                 </a>
