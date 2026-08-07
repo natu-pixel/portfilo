@@ -1,0 +1,74 @@
+"use client";
+
+import { Code2, Cpu, Globe, Layers, Shield, Terminal } from "lucide-react";
+
+const skillCategories = [
+  {
+    title: "Software & Web Development",
+    icon: Code2,
+    skills: ["React / Next.js", "TypeScript", "Node.js", "Python Automation", "Tailwind CSS", "REST APIs", "Git / GitHub"],
+    color: "text-blue-400",
+    bgColor: "bg-blue-500/10",
+  },
+  {
+    title: "Hardware & Maintenance",
+    icon: Cpu,
+    skills: ["PC Diagnostics & Assembly", "Component Replacement", "System Benchmarking", "BIOS/UEFI Configuration", "Thermal Management", "Disaster Recovery"],
+    color: "text-emerald-400",
+    bgColor: "bg-emerald-500/10",
+  },
+  {
+    title: "Networking & Security",
+    icon: Shield,
+    skills: ["Router & Switch Config", "LAN / WAN Design", "TCP/IP & Subnetting", "IPTV Stream Delivery", "Firewall Rules", "Network Troubleshooting"],
+    color: "text-purple-400",
+    bgColor: "bg-purple-500/10",
+  },
+];
+
+export default function SkillsMatrix() {
+  return (
+    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-800/60">
+      
+      {/* Header */}
+      <div className="max-w-3xl mb-16">
+        <span className="text-xs font-mono uppercase tracking-widest text-purple-400">Technical Capability</span>
+        <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-white mt-2">
+          Skills & Technologies Matrix
+        </h2>
+        <p className="text-neutral-400 mt-2 text-base font-light">
+          A comprehensive breakdown of tools, languages, and technical disciplines I master.
+        </p>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {skillCategories.map((cat, idx) => {
+          const Icon = cat.icon;
+          return (
+            <div key={idx} className="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80">
+              <div className="flex items-center gap-3 mb-6">
+                <div className={`p-2.5 rounded-xl ${cat.bgColor} ${cat.color}`}>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-outfit text-base font-semibold text-white">{cat.title}</h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {cat.skills.map((skill, sIdx) => (
+                  <span
+                    key={sIdx}
+                    className="px-3 py-1.5 rounded-lg bg-neutral-950 text-xs font-mono text-neutral-300 border border-neutral-800 hover:border-neutral-700 transition-colors"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+    </section>
+  );
+}

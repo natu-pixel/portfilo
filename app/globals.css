@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 98%;
+}
+
+/* Hide scrollbar for Lenis smooth scrolling feel */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; 
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #60a5fa, #9333ea);
+}
+
+/* Base styles for GSAP split text to prevent FOUC */
+.split-text-line {
+  overflow: hidden;
+}
