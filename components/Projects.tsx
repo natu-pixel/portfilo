@@ -41,6 +41,11 @@ const projectsList: (CaseStudyData & {
     demoUrl: "https://natentertainment.org/",
     githubUrl: "https://github.com/natu-pixel/portfilo",
     liveLabel: "Visit Live Site (natentertainment.org)",
+    highlights: [
+      "Live production e-commerce & sales engine at natentertainment.org",
+      "Automated order processing & instant digital delivery workflow",
+      "Integrated multi-channel payment & live support chat",
+    ],
   },
   {
     title: "Algorithmic Trading Bot Engine",
@@ -69,6 +74,11 @@ const projectsList: (CaseStudyData & {
     demoUrl: "https://t.me/NATENTERTAINMENTSUPPORT",
     githubUrl: "https://github.com/natu-pixel/portfilo",
     liveLabel: "Request Bot Demo",
+    highlights: [
+      "Real-time WebSocket market data ingestion",
+      "Automated risk management & stop-loss triggers",
+      "Backtested indicator signals with technical metrics",
+    ],
   },
   {
     title: "Enterprise Inventory & CRM Engine",
@@ -98,6 +108,11 @@ const projectsList: (CaseStudyData & {
     demoUrl: "https://t.me/NATENTERTAINMENTSUPPORT",
     githubUrl: "https://github.com/natu-pixel/portfilo",
     liveLabel: "In Active Development",
+    highlights: [
+      "Live active development phase (75% completed)",
+      "Automated stock tracking & maintenance dispatch schedule",
+      "Role-based access control (RBAC) & audit logs",
+    ],
   },
   {
     title: "Multi-Chain Crypto Arbitrage Bot v2",
@@ -126,6 +141,11 @@ const projectsList: (CaseStudyData & {
     demoUrl: "https://t.me/NATENTERTAINMENTSUPPORT",
     githubUrl: "https://github.com/natu-pixel/portfilo",
     liveLabel: "In Active Development",
+    highlights: [
+      "Live active development phase (60% completed)",
+      "Cross-DEX liquidity monitoring across multiple chains",
+      "Automated profit calculation after gas estimation",
+    ],
   },
   {
     title: "Gourmet Restaurant Platform",
@@ -153,6 +173,11 @@ const projectsList: (CaseStudyData & {
     demoUrl: "https://wa.me/251945653317",
     githubUrl: "https://github.com/natu-pixel/portfilo",
     liveLabel: "View Platform Demo",
+    highlights: [
+      "Dynamic interactive digital menu",
+      "Online table reservation workflow",
+      "Mobile-first responsive design system",
+    ],
   },
   {
     title: "IPTV Player Application",
@@ -180,6 +205,11 @@ const projectsList: (CaseStudyData & {
     demoUrl: "https://t.me/NATENTERTAINMENTSUPPORT",
     githubUrl: "https://github.com/natu-pixel/portfilo",
     liveLabel: "View App Details",
+    highlights: [
+      "M3U/M3U8 playlist & EPG channel guide parser",
+      "Custom HLS video streaming player integration",
+      "Smooth categorization & search indexing",
+    ],
   },
 ];
 
@@ -192,7 +222,7 @@ export default function Projects() {
     : projectsList.filter(p => p.category === activeCategory || (activeCategory === "Ongoing Projects" && p.isOngoing));
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-800/60">
+    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200">
       
       {/* Modal View */}
       <CaseStudyModal
@@ -204,15 +234,15 @@ export default function Projects() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-mono uppercase tracking-widest text-blue-400">Featured Work & Live Projects</span>
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> 2 Active Developments
+            <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-semibold">Featured Work & Live Projects</span>
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-ping"></span> 2 Active Developments
             </span>
           </div>
-          <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900">
             Selected Work & Platforms
           </h2>
-          <p className="text-neutral-400 mt-2 text-base font-light max-w-xl">
+          <p className="text-neutral-600 mt-2 text-base font-light max-w-xl">
             Click any project to read the detailed Case Study, view GitHub code repositories, or test out the live bot execution sandbox below.
           </p>
         </div>
@@ -221,7 +251,7 @@ export default function Projects() {
           href="https://natentertainment.org/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 px-4 py-2.5 rounded-xl transition-colors shadow-lg shadow-blue-600/25 self-start md:self-auto"
+          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-700 px-4 py-2.5 rounded-xl transition-colors shadow-md shadow-blue-600/20 self-start md:self-auto"
         >
           <Globe className="w-4 h-4" /> Live Website: natentertainment.org ↗
         </a>
@@ -230,16 +260,16 @@ export default function Projects() {
       {/* Interactive Bot Terminal Sandbox */}
       <div className="mb-16">
         <div className="mb-3 flex items-center justify-between">
-          <h3 className="text-lg font-bold font-outfit text-white flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-blue-400"></span> Interactive Bot Terminal Sandbox
+          <h3 className="text-lg font-bold font-outfit text-neutral-900 flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-600"></span> Interactive Bot Terminal Sandbox
           </h3>
-          <span className="text-xs font-mono text-neutral-400">Try running the simulation below</span>
+          <span className="text-xs font-mono text-neutral-500">Try running the simulation below</span>
         </div>
         <BotSandbox />
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap gap-2 mb-12 pb-4 border-b border-neutral-800/80">
+      <div className="flex flex-wrap gap-2 mb-12 pb-4 border-b border-neutral-200">
         {categories.map((cat, idx) => (
           <button
             key={idx}
@@ -247,7 +277,7 @@ export default function Projects() {
             className={`px-4 py-2 rounded-xl text-xs font-mono transition-all ${
               activeCategory === cat
                 ? "bg-blue-600 text-white font-semibold shadow-md shadow-blue-600/20"
-                : "bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800"
+                : "bg-neutral-100 text-neutral-600 hover:text-neutral-900 border border-neutral-200"
             }`}
           >
             {cat} {cat === "Ongoing Projects" && "(2 Active)"}
@@ -260,16 +290,16 @@ export default function Projects() {
         {filteredProjects.map((project, index) => (
           <article
             key={index}
-            className={`flex flex-col rounded-3xl bg-neutral-900/40 border overflow-hidden transition-all duration-300 group ${
+            className={`flex flex-col rounded-3xl bg-white border overflow-hidden transition-all duration-300 group shadow-sm ${
               project.isFlagship
-                ? "border-blue-500/50 shadow-xl shadow-blue-500/10 lg:col-span-2 lg:flex-row"
+                ? "border-blue-300 shadow-lg shadow-blue-600/5 lg:col-span-2 lg:flex-row"
                 : project.isOngoing
-                ? "border-amber-500/40 bg-neutral-900/60"
-                : "border-neutral-800/80 hover:border-neutral-700"
+                ? "border-amber-300 bg-amber-50/20"
+                : "border-neutral-200 hover:border-blue-300"
             }`}
           >
             {/* Image Preview Container */}
-            <div className={`relative w-full bg-neutral-950 overflow-hidden ${
+            <div className={`relative w-full bg-neutral-100 overflow-hidden ${
               project.isFlagship ? "lg:w-1/2 aspect-[16/10]" : "aspect-[16/10]"
             }`}>
               <Image
@@ -278,22 +308,22 @@ export default function Projects() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent opacity-80"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80"></div>
               
               <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                 <span className={`px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider backdrop-blur-md border ${
                   project.isFlagship
-                    ? "bg-blue-600 text-white border-blue-400 font-bold"
+                    ? "bg-blue-600 text-white border-blue-500 font-bold"
                     : project.isOngoing
-                    ? "bg-amber-500/20 text-amber-400 border-amber-500/40"
-                    : "bg-neutral-950/80 text-blue-400 border-neutral-800"
+                    ? "bg-amber-100 text-amber-800 border-amber-300 font-medium"
+                    : "bg-white/90 text-blue-700 border-blue-200 font-medium"
                 }`}>
                   {project.isFlagship ? "★ Flagship Live Website" : project.category}
                 </span>
 
                 {project.isOngoing && (
-                  <span className="px-3 py-1 rounded-full text-[11px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/30 backdrop-blur-md flex items-center gap-1.5">
-                    <Clock className="w-3 h-3 text-amber-400 animate-spin" /> In Active Development
+                  <span className="px-3 py-1 rounded-full text-[11px] font-mono bg-amber-100 text-amber-800 border border-amber-300 backdrop-blur-md flex items-center gap-1.5">
+                    <Clock className="w-3 h-3 text-amber-600 animate-spin" /> In Active Development
                   </span>
                 )}
               </div>
@@ -305,25 +335,25 @@ export default function Projects() {
             }`}>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-outfit text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className="font-outfit text-2xl font-bold text-neutral-900 group-hover:text-blue-600 transition-colors">
                     {project.title}
                   </h3>
                 </div>
 
-                <p className="text-neutral-400 text-sm leading-relaxed font-light">
+                <p className="text-neutral-600 text-sm leading-relaxed font-light">
                   {project.description}
                 </p>
 
                 {/* Progress bar for ongoing work */}
                 {project.isOngoing && project.progressPercent && (
                   <div className="pt-2">
-                    <div className="flex justify-between text-[11px] font-mono text-neutral-400 mb-1">
+                    <div className="flex justify-between text-[11px] font-mono text-neutral-600 mb-1">
                       <span>Development Progress</span>
-                      <span className="text-amber-400 font-bold">{project.progressPercent}%</span>
+                      <span className="text-amber-700 font-bold">{project.progressPercent}%</span>
                     </div>
-                    <div className="w-full h-2 bg-neutral-950 rounded-full overflow-hidden border border-neutral-800">
+                    <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden border border-neutral-200">
                       <div
-                        className="h-full bg-gradient-to-r from-amber-500 to-emerald-400 rounded-full transition-all duration-1000"
+                        className="h-full bg-gradient-to-r from-amber-500 to-blue-600 rounded-full transition-all duration-1000"
                         style={{ width: `${project.progressPercent}%` }}
                       ></div>
                     </div>
@@ -331,22 +361,22 @@ export default function Projects() {
                 )}
 
                 {/* Highlights List */}
-                <ul className="space-y-1.5 pt-2 text-xs text-neutral-300 font-mono">
+                <ul className="space-y-1.5 pt-2 text-xs text-neutral-700 font-mono">
                   {project.highlights?.map((item, hIdx) => (
                     <li key={hIdx} className="flex items-center gap-2">
-                      <span className={`w-1.5 h-1.5 rounded-full ${project.isFlagship ? "bg-blue-400" : project.isOngoing ? "bg-amber-400" : "bg-blue-500"}`}></span> {item}
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span> {item}
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Bottom Actions & Case Study Trigger */}
-              <div className="pt-4 border-t border-neutral-800/80 space-y-4">
+              <div className="pt-4 border-t border-neutral-200 space-y-4">
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((t, tIdx) => (
                     <span
                       key={tIdx}
-                      className="px-2.5 py-1 rounded-md bg-neutral-950 text-[11px] font-mono text-neutral-400 border border-neutral-800"
+                      className="px-2.5 py-1 rounded-md bg-neutral-100 text-[11px] font-mono text-neutral-700 border border-neutral-200"
                     >
                       {t}
                     </span>
@@ -357,16 +387,16 @@ export default function Projects() {
                   <div className="flex flex-wrap gap-2">
                     <button
                       onClick={() => setSelectedCaseStudy(project)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-800 border border-neutral-200 transition-colors"
                     >
-                      <BookOpen className="w-3.5 h-3.5 text-blue-400" /> Read Case Study
+                      <BookOpen className="w-3.5 h-3.5 text-blue-600" /> Read Case Study
                     </button>
 
                     <a
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
                     >
                       {project.liveLabel} <ExternalLink className="w-3.5 h-3.5" />
                     </a>
@@ -377,9 +407,9 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-400 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-500 hover:text-neutral-900 transition-colors"
                     >
-                      <GitBranch className="w-3 h-3 text-purple-400" /> Repo
+                      <GitBranch className="w-3 h-3 text-blue-600" /> Repo
                     </a>
                   )}
                 </div>

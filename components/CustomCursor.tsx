@@ -40,13 +40,13 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-[9999] h-8 w-8 rounded-full border border-white/30 mix-blend-difference"
+      className="pointer-events-none fixed top-0 left-0 z-[9999] h-8 w-8 rounded-full border border-blue-600/40 hidden md:block"
       animate={{
         x: mousePosition.x - (isHovering ? 32 : 16),
         y: mousePosition.y - (isHovering ? 32 : 16),
         scale: isHovering ? 2 : 1,
-        backgroundColor: isHovering ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0)",
-        borderColor: isHovering ? "rgba(255, 255, 255, 0.5)" : "rgba(255, 255, 255, 0.3)",
+        backgroundColor: isHovering ? "rgba(37, 99, 235, 0.08)" : "rgba(37, 99, 235, 0)",
+        borderColor: isHovering ? "rgba(37, 99, 235, 0.8)" : "rgba(37, 99, 235, 0.4)",
       }}
       transition={{ duration: 0.15, ease: "easeOut" }}
     />

@@ -22,15 +22,15 @@ const skillCategories = [
 
 export default function SkillsMatrix() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-800/60">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200">
       
       {/* Header */}
       <div className="max-w-3xl mb-16">
-        <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">Technical Capability</span>
-        <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-white mt-2">
+        <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-semibold">Technical Capability</span>
+        <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-neutral-900 mt-2">
           Skills & Technologies Matrix
         </h2>
-        <p className="text-neutral-400 mt-2 text-base font-light">
+        <p className="text-neutral-600 mt-2 text-base font-light">
           A comprehensive breakdown of tools, languages, and technical disciplines I master.
         </p>
       </div>
@@ -40,19 +40,19 @@ export default function SkillsMatrix() {
         {skillCategories.map((cat, idx) => {
           const Icon = cat.icon;
           return (
-            <div key={idx} className="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800/80">
+            <div key={idx} className="p-6 rounded-2xl bg-neutral-50 border border-neutral-200 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 rounded-xl bg-neutral-800 text-white">
+                <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="font-outfit text-base font-semibold text-white">{cat.title}</h3>
+                <h3 className="font-outfit text-base font-semibold text-neutral-900">{cat.title}</h3>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="px-3 py-1.5 rounded-lg bg-neutral-950 text-xs font-mono text-neutral-300 border border-neutral-800 hover:border-neutral-700 transition-colors"
+                    className="px-3 py-1.5 rounded-lg bg-white text-xs font-mono text-neutral-800 border border-neutral-200 hover:border-blue-300 transition-colors"
                   >
                     {skill}
                   </span>

@@ -31,15 +31,15 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-800/60">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200">
       
       {/* Header */}
       <div className="max-w-3xl mb-16">
-        <span className="text-xs font-mono uppercase tracking-widest text-blue-400">Client Endorsements</span>
-        <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-2">
+        <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-semibold">Client Endorsements</span>
+        <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mt-2">
           What Clients & Partners Say
         </h2>
-        <p className="text-neutral-400 mt-2 text-base font-light">
+        <p className="text-neutral-600 mt-2 text-base font-light">
           Feedback from businesses and traders I've engineered software and network solutions for.
         </p>
       </div>
@@ -49,11 +49,11 @@ export default function Testimonials() {
         {testimonials.map((item, idx) => (
           <div
             key={idx}
-            className="p-8 rounded-3xl bg-neutral-900/40 border border-neutral-800/80 hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between"
+            className="p-8 rounded-3xl bg-neutral-50 border border-neutral-200 hover:border-blue-300 transition-all duration-300 flex flex-col justify-between shadow-sm"
           >
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="p-3 rounded-2xl bg-blue-500/10 text-blue-400">
+                <div className="p-3 rounded-2xl bg-blue-50 text-blue-600 border border-blue-200">
                   <Quote className="w-5 h-5" />
                 </div>
                 <div className="flex gap-1">
@@ -63,18 +63,18 @@ export default function Testimonials() {
                 </div>
               </div>
 
-              <p className="text-neutral-300 text-sm leading-relaxed font-light mb-8 italic">
+              <p className="text-neutral-700 text-sm leading-relaxed font-light mb-8 italic">
                 "{item.quote}"
               </p>
             </div>
 
-            <div className="flex items-center gap-3 pt-4 border-t border-neutral-800/80">
-              <div className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-white font-semibold text-sm">
-                <UserCheck className="w-5 h-5 text-blue-400" />
+            <div className="flex items-center gap-3 pt-4 border-t border-neutral-200">
+              <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 font-semibold text-sm">
+                <UserCheck className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-sm font-semibold text-white font-outfit">{item.name}</div>
-                <div className="text-xs font-mono text-neutral-400">{item.role} • {item.company}</div>
+                <div className="text-sm font-semibold text-neutral-900 font-outfit">{item.name}</div>
+                <div className="text-xs font-mono text-neutral-500">{item.role} • {item.company}</div>
               </div>
             </div>
           </div>
