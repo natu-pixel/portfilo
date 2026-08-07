@@ -5,6 +5,12 @@ import Lenis from "lenis";
 
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
+    // Force browser to start at top of page on load/refresh
+    if (typeof window !== "undefined") {
+      window.history.scrollRestoration = "manual";
+      window.scrollTo(0, 0);
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -14,6 +20,9 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
+
+    // Scroll to top immediately on init
+    lenis.scrollTo(0, { immediate: true });
 
     function raf(time: number) {
       lenis.raf(time);
