@@ -38,8 +38,12 @@ export default function BotSandbox() {
     return () => clearInterval(interval);
   }, [isRunning]);
 
+  const terminalBoxRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    logEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (terminalBoxRef.current) {
+      terminalBoxRef.current.scrollTop = terminalBoxRef.current.scrollHeight;
+    }
   }, [logs]);
 
   const toggleRun = () => {
@@ -92,7 +96,7 @@ export default function BotSandbox() {
       </div>
 
       {/* Terminal Output Screen */}
-      <div className="p-4 h-56 overflow-y-auto font-mono text-xs text-neutral-300 space-y-1.5 bg-neutral-950">
+      <div ref={terminalBoxRef} className="p-4 h-56 overflow-y-auto font-mono text-xs text-neutral-300 space-y-1.5 bg-neutral-950">
         {logs.map((log, i) => (
           <div
             key={i}
@@ -109,7 +113,6 @@ export default function BotSandbox() {
             {log}
           </div>
         ))}
-        <div ref={logEndRef} />
       </div>
 
       {/* Footer Info Bar */}
