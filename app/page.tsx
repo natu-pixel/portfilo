@@ -4,6 +4,7 @@ import SkillsMatrix from "@/components/SkillsMatrix";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
+import ScrollToTop from "@/components/ScrollToTop";
 import { Mail, MessageCircle, Send } from "lucide-react";
 
 export default function Home() {
@@ -115,6 +116,9 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* Floating Scroll To Top Arrow Button */}
+      <ScrollToTop />
 
       {/* Semantic Footer */}
       <footer className="border-t border-neutral-200 py-8 px-4 sm:px-6 lg:px-8 text-xs font-mono text-neutral-500 bg-neutral-50">
