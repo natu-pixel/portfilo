@@ -2,22 +2,25 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import SkillsMatrix from "@/components/SkillsMatrix";
 import Projects from "@/components/Projects";
-import { Mail, MessageCircle, Send } from "lucide-react";
+import Testimonials from "@/components/Testimonials";
+import ContactForm from "@/components/ContactForm";
+import { Mail, MessageCircle, Send, Globe, Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-white/20 selection:text-white">
+    <div className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-blue-500/30 selection:text-blue-200">
       
       {/* Sticky Header Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <a href="#" className="font-outfit text-lg font-bold text-white tracking-tight flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-white"></span> Natnael Teferi
+            <span className="w-3 h-3 rounded-full bg-blue-500"></span> Natnael Teferi
           </a>
 
           <nav className="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-wider text-neutral-400">
             <a href="#about" className="hover:text-white transition-colors">About</a>
-            <a href="#projects" className="hover:text-white transition-colors">Selected Work</a>
+            <a href="#projects" className="hover:text-white transition-colors font-medium text-blue-400">Case Studies & Work</a>
+            <a href="#testimonials" className="hover:text-white transition-colors">Endorsements</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </nav>
 
@@ -25,7 +28,7 @@ export default function Home() {
             href="https://t.me/NATENTERTAINMENTSUPPORT"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-black bg-white hover:bg-neutral-200 px-4 py-2 rounded-xl transition-all shadow-md shadow-white/10"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-xl transition-all shadow-md shadow-blue-600/20"
           >
             Get In Touch
           </a>
@@ -38,31 +41,36 @@ export default function Home() {
         <About />
         <SkillsMatrix />
         <Projects />
+        
+        <div id="testimonials">
+          <Testimonials />
+        </div>
 
-        {/* Contact Section */}
+        {/* Contact Section with Embedded Form */}
         <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-800/60">
-          <div className="rounded-3xl bg-neutral-900/60 border border-neutral-800 p-8 sm:p-12 lg:p-16 relative overflow-hidden">
-            <div className="max-w-2xl relative z-10">
-              <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">Direct Contact</span>
-              <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-2">
-                Have a project or technical challenge? Let's discuss.
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            {/* Direct Contact Info Column */}
+            <div className="lg:col-span-5 space-y-6">
+              <span className="text-xs font-mono uppercase tracking-widest text-blue-400">Let's Connect</span>
+              <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-white">
+                Have a project or technical challenge?
               </h2>
-              <p className="text-neutral-400 mt-4 text-base font-light leading-relaxed">
-                Whether you need a specialized trading bot, a modern web app, or network & hardware infrastructure setup, I'm available for contracts and freelance assignments.
+              <p className="text-neutral-400 text-sm leading-relaxed font-light">
+                Whether you need a custom trading bot engine, a full-stack e-commerce platform like <a href="https://natentertainment.org/" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">natentertainment.org</a>, or enterprise IT networking maintenance, I'm available for freelance assignments and contract roles.
               </p>
 
-              {/* Direct Contact Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+              <div className="space-y-4 pt-4">
                 <a
                   href="mailto:natikuzmi@gmail.com"
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-neutral-700 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800 hover:border-blue-500/50 transition-colors group"
                 >
-                  <div className="p-2.5 rounded-xl bg-neutral-800 text-white group-hover:scale-105 transition-transform">
+                  <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-neutral-500">Email</div>
-                    <div className="text-xs font-semibold text-white truncate">natikuzmi@gmail.com</div>
+                    <div className="text-xs font-mono text-neutral-500">Email Address</div>
+                    <div className="text-sm font-semibold text-white">natikuzmi@gmail.com</div>
                   </div>
                 </a>
 
@@ -70,14 +78,14 @@ export default function Home() {
                   href="https://wa.me/251945653317"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-neutral-700 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800 hover:border-emerald-500/50 transition-colors group"
                 >
-                  <div className="p-2.5 rounded-xl bg-neutral-800 text-white group-hover:scale-105 transition-transform">
+                  <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:scale-105 transition-transform">
                     <MessageCircle className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-xs font-mono text-neutral-500">WhatsApp</div>
-                    <div className="text-xs font-semibold text-white">+251 945 653 317</div>
+                    <div className="text-sm font-semibold text-white">+251 945 653 317</div>
                   </div>
                 </a>
 
@@ -85,19 +93,24 @@ export default function Home() {
                   href="https://t.me/NATENTERTAINMENTSUPPORT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-neutral-950 border border-neutral-800 hover:border-neutral-700 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-900/60 border border-neutral-800 hover:border-sky-500/50 transition-colors group"
                 >
-                  <div className="p-2.5 rounded-xl bg-neutral-800 text-white group-hover:scale-105 transition-transform">
+                  <div className="p-3 rounded-xl bg-sky-500/10 text-sky-400 group-hover:scale-105 transition-transform">
                     <Send className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-xs font-mono text-neutral-500">Telegram</div>
-                    <div className="text-xs font-semibold text-white">@NATENTERTAINMENT...</div>
+                    <div className="text-sm font-semibold text-white">@NATENTERTAINMENTSUPPORT</div>
                   </div>
                 </a>
               </div>
-
             </div>
+
+            {/* Built-in Embedded Contact Form Column */}
+            <div className="lg:col-span-7">
+              <ContactForm />
+            </div>
+
           </div>
         </section>
       </main>
