@@ -2,8 +2,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Aeonik", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-outfit: "Aeonik", var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Aeonik", ui-sans-serif, system-ui, sans-serif;
+  --font-outfit: "Aeonik", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Aeonik", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -11,8 +12,15 @@
   --foreground: 0 0% 9%;
 }
 
-body {
-  font-family: "Aeonik", sans-serif;
+*,
+*::before,
+*::after,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Aeonik", sans-serif !important;
 }
 
 /* Hide scrollbar for Lenis smooth scrolling feel */
