@@ -8,21 +8,21 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "Nati Kuzmi – Software Engineer & Full-Stack Developer",
-  description: "Nati Kuzmi is a Computer Science graduate & full-stack developer building performant web apps, trading bots, and enterprise IT networking solutions.",
-  keywords: ["Nati Kuzmi", "Natnael Teferi", "Software Engineer", "Full-Stack Developer", "Trading Bot", "Networking", "Web Development"],
-  authors: [{ name: "Nati Kuzmi" }],
+  title: "Natnael Teferi – Software Engineer & Full-Stack Developer",
+  description: "Natnael Teferi is a Computer Science graduate & full-stack developer building performant web apps, trading bots, and enterprise IT networking solutions.",
+  keywords: ["Natnael Teferi", "Software Engineer", "Full-Stack Developer", "Trading Bot", "Networking", "Web Development"],
+  authors: [{ name: "Natnael Teferi" }],
   openGraph: {
-    title: "Nati Kuzmi – Full-Stack Developer & Software Engineer",
+    title: "Natnael Teferi – Full-Stack Developer & Software Engineer",
     description: "I build fast, performant web applications, trading bots, and enterprise IT infrastructure.",
     url: "https://portfilo.natikuzmi.workers.dev",
-    siteName: "Nati Kuzmi Portfolio",
+    siteName: "Natnael Teferi Portfolio",
     images: [
       {
         url: "https://portfilo.natikuzmi.workers.dev/ceo.jpg",
         width: 1200,
         height: 630,
-        alt: "Nati Kuzmi Portfolio",
+        alt: "Natnael Teferi Portfolio",
       },
     ],
     locale: "en_US",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nati Kuzmi – Full-Stack Developer",
+    title: "Natnael Teferi – Full-Stack Developer",
     description: "Software engineer building performant, accessible web experiences.",
     images: ["https://portfilo.natikuzmi.workers.dev/ceo.jpg"],
   },
@@ -44,8 +44,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Nati Kuzmi",
-    alternateName: "Natnael Teferi",
+    name: "Natnael Teferi",
     jobTitle: "Full-Stack Software Engineer",
     url: "https://portfilo.natikuzmi.workers.dev",
     sameAs: [
@@ -59,6 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} scroll-smooth`}>
       <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivan-vasiljevic/aspekta@latest/Aspekta-Variable/aspekta.css" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -14,7 +14,7 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <a href="#" className="font-outfit text-lg font-bold text-neutral-900 tracking-tight flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">
-            <span className="w-3 h-3 rounded-full bg-blue-600"></span> Nati Kuzmi
+            <span className="w-3 h-3 rounded-full bg-blue-600"></span> Natnael Teferi
           </a>
 
           <nav className="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-wider text-neutral-600 font-medium" aria-label="Main Navigation">
@@ -62,7 +62,7 @@ export default function Home() {
                 <a
                   href="mailto:natikuzmi@gmail.com"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:border-blue-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  aria-label="Send email to Nati Kuzmi"
+                  aria-label="Send email to Natnael Teferi"
                 >
                   <div className="p-3 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
@@ -78,7 +78,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:border-blue-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  aria-label="Chat on WhatsApp with Nati Kuzmi"
+                  aria-label="Chat on WhatsApp with Natnael Teferi"
                 >
                   <div className="p-3 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 group-hover:scale-105 transition-transform">
                     <MessageCircle className="w-5 h-5" />
@@ -94,7 +94,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:border-blue-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  aria-label="Message Nati Kuzmi on Telegram"
+                  aria-label="Message Natnael Teferi on Telegram"
                 >
                   <div className="p-3 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 group-hover:scale-105 transition-transform">
                     <Send className="w-5 h-5" />
@@ -119,7 +119,7 @@ export default function Home() {
       {/* Semantic Footer */}
       <footer className="border-t border-neutral-200 py-8 px-4 sm:px-6 lg:px-8 text-xs font-mono text-neutral-500 bg-neutral-50">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div>© {new Date().getFullYear()} Nati Kuzmi (Natnael Teferi). All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Natnael Teferi. All rights reserved.</div>
           <div className="flex items-center gap-4">
             <span>Computer Science B.Sc.</span>
             <span>•</span>

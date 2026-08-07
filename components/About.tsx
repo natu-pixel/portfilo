@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, Server, Wrench, CheckCircle2, User, Heart, Sparkles } from "lucide-react";
+import { GraduationCap, Server, Wrench, CheckCircle2 } from "lucide-react";
 
 export default function About() {
   return (
@@ -13,10 +13,10 @@ export default function About() {
           Bridging High-Level Software with <span className="text-blue-600">Low-Level Infrastructure.</span>
         </h2>
         
-        {/* Audit Recommended Personal Narrative & Philosophy */}
+        {/* Personal Narrative & Philosophy */}
         <div className="mt-6 p-6 rounded-2xl bg-blue-50/50 border border-blue-100 space-y-3">
           <p className="text-neutral-700 text-base leading-relaxed font-light">
-            I’m <strong className="font-semibold text-neutral-900">Nati Kuzmi</strong>, a software engineer passionate about clean code and intuitive design. My journey started when I built my first website at 16. With a B.Sc. in Computer Science and certified expertise in Computer Maintenance and Networking, I believe in <span className="text-blue-600 font-medium">learning by building</span> — every project teaches me a new lesson.
+            I’m <strong className="font-semibold text-neutral-900">Natnael Teferi</strong>, a software engineer passionate about clean code and intuitive design. My journey started when I built my first website at 16. With a B.Sc. in Computer Science and certified expertise in Computer Maintenance and Networking, I believe in <span className="text-blue-600 font-medium">learning by building</span> — every project teaches me a new lesson.
           </p>
           <p className="text-neutral-600 text-sm leading-relaxed font-light">
             As a developer, I believe simplicity wins. Whether it’s clean UI or optimized server performance, I start with the user’s needs, write efficient code, and iterate based on real feedback.

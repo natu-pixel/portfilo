@@ -36,9 +36,9 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Explicit 3-Second Rule Headline */}
+          {/* Explicit Headline with Natnael Teferi */}
           <h1 className="font-outfit text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 leading-tight">
-            Hi, I’m <span className="text-blue-600">Nati Kuzmi</span> — Full-Stack Developer & Software Engineer.
+            Hi, I’m <span className="text-blue-600">Natnael Teferi</span> — Full-Stack Developer & Software Engineer.
           </h1>
 
           {/* Subtitle & Value Proposition */}
@@ -104,10 +104,10 @@ export default function Hero() {
           <div className="flex items-center justify-between p-4 rounded-2xl bg-neutral-50 border border-neutral-200">
             <div className="flex items-center gap-4">
               <div className="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-neutral-200">
-                <Image src="/ceo.jpg" alt="Nati Kuzmi - Full-Stack Developer & Software Engineer" fill className="object-cover" />
+                <Image src="/ceo.jpg" alt="Natnael Teferi - Full-Stack Developer & Software Engineer" fill className="object-cover" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-neutral-900 font-outfit">Nati Kuzmi</h4>
+                <h4 className="text-sm font-semibold text-neutral-900 font-outfit">Natnael Teferi</h4>
                 <p className="text-xs text-neutral-500">Full-Stack Engineer & Founder</p>
                 <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-blue-600">
                   <Terminal className="w-3 h-3" /> Ready for Deployment

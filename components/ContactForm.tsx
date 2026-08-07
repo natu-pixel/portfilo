@@ -40,12 +40,12 @@ export default function ContactForm() {
             <div>
               <h3 className="font-outfit font-semibold text-base">Message Sent Successfully!</h3>
               <p className="text-xs text-neutral-600 mt-1">
-                Thank you for reaching out, Nati Kuzmi will respond to your message promptly.
+                Thank you for reaching out, Natnael Teferi will respond to your message promptly.
               </p>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact Nati Kuzmi Form">
+          <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact Natnael Teferi Form">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="contact-name" className="block text-xs font-mono text-neutral-700 uppercase mb-2 font-medium">
@@ -115,7 +115,7 @@ export default function ContactForm() {
               type="submit"
               disabled={status === "sending"}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-all duration-200 shadow-md shadow-blue-600/20 w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
-              aria-label="Send Direct Message to Nati Kuzmi"
+              aria-label="Send Direct Message to Natnael Teferi"
             >
               {status === "sending" ? "Sending Message..." : "Contact Me"} <Send className="w-4 h-4" />
             </button>

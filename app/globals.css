@@ -1,12 +1,18 @@
+@import url("https://cdn.jsdelivr.net/gh/ivan-vasiljevic/aspekta@latest/Aspekta-Variable/aspekta.css");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Aspekta", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-outfit: "Aspekta", var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --background: 0 0% 100%;
   --foreground: 0 0% 9%;
+}
+
+body {
+  font-family: "Aspekta", sans-serif;
 }
 
 /* Hide scrollbar for Lenis smooth scrolling feel */
@@ -16,7 +22,7 @@
 }
 
 .text-gradient {
-  color: #1d4ed8; /* Vibrant Royal Blue like reference image */
+  color: #1d4ed8; /* Vibrant Royal Blue */
 }
 
 .text-blue-accent {
