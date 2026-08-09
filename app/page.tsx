@@ -65,7 +65,7 @@ export default function Home() {
 
               <div className="space-y-4 pt-4">
                 <a
-                  href="mailto:natikuzmi@gmail.com"
+                  href="mailto:info@natentertainment.org"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-50/80 backdrop-blur-md border border-neutral-200 hover:border-blue-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-600"
                   aria-label="Send email to Natnael Teferi"
                 >
@@ -74,7 +74,7 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="text-xs font-mono text-neutral-500">Email Address (Natnael Teferi)</div>
-                    <div className="text-sm font-semibold text-neutral-900">natikuzmi@gmail.com</div>
+                    <div className="text-sm font-semibold text-neutral-900">info@natentertainment.org</div>
                   </div>
                 </a>
 

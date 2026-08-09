@@ -1,10 +1,10 @@
-@import url('https://fonts.cdnfonts.com/css/aeonik');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Aeonik", ui-sans-serif, system-ui, sans-serif;
-  --font-outfit: "Aeonik", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Aeonik", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-outfit: "Space Grotesk", sans-serif;
+  --font-mono: "Space Grotesk", monospace;
 }
 
 :root {
@@ -19,8 +19,9 @@ body,
 button,
 input,
 select,
-textarea {
-  font-family: "Aeonik", sans-serif !important;
+textarea,
+h1, h2, h3, h4, h5, h6, p, span, a, div {
+  font-family: "Space Grotesk", sans-serif !important;
 }
 
 /* Hide scrollbar for Lenis smooth scrolling feel */
