@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 import { ArrowUpRight, Award, ShieldCheck, Terminal, Flame, ExternalLink } from "lucide-react";
 import Image from "next/image";
+import KineticHeader from "./KineticHeader";
+import Card3DTilt from "./Card3DTilt";
 
 // Dynamically import 3D Canvas without SSR to prevent WebGL hydration mismatches
 const Hero3DCanvas = dynamic(() => import("./Hero3DCanvas"), {
@@ -36,10 +38,12 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Explicit Headline with Natnael Teferi */}
-          <h1 className="font-outfit text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 leading-tight">
-            Hi, I’m <span className="text-blue-600">Natnael Teferi</span> — Full-Stack Developer & Software Engineer.
-          </h1>
+          {/* Anime.js Kinetic Character Headline */}
+          <KineticHeader
+            text="Hi, I’m "
+            highlightText="Natnael Teferi — Full-Stack Developer & Software Engineer."
+            className="font-outfit text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 leading-tight"
+          />
 
           {/* Subtitle & Value Proposition */}
           <p className="text-neutral-600 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
@@ -96,34 +100,36 @@ export default function Hero() {
 
         </div>
 
-        {/* Right Column: Interactive 3D WebGL Canvas & Profile Badge */}
+        {/* Right Column: Interactive 3D WebGL Canvas & 3D Tilt Profile Card */}
         <div className="lg:col-span-5 flex flex-col space-y-4">
           <Hero3DCanvas />
 
-          {/* Profile Card overlay with WCAG Alt text */}
-          <div className="flex items-center justify-between p-4 rounded-2xl bg-neutral-50 border border-neutral-200">
-            <div className="flex items-center gap-4">
-              <div className="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-neutral-200">
-                <Image src="/ceo.jpg" alt="Natnael Teferi - Full-Stack Developer & Software Engineer" fill className="object-cover" />
-              </div>
-              <div>
-                <h4 className="text-sm font-semibold text-neutral-900 font-outfit">Natnael Teferi</h4>
-                <p className="text-xs text-neutral-500">Full-Stack Engineer & Founder</p>
-                <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-blue-600">
-                  <Terminal className="w-3 h-3" /> Ready for Deployment
+          {/* Profile Card wrapped in 3D perspective tilt */}
+          <Card3DTilt>
+            <div className="flex items-center justify-between p-4 rounded-2xl bg-neutral-50 border border-neutral-200 shadow-sm">
+              <div className="flex items-center gap-4">
+                <div className="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-neutral-200">
+                  <Image src="/ceo.jpg" alt="Natnael Teferi - Full-Stack Developer & Software Engineer" fill className="object-cover" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-neutral-900 font-outfit">Natnael Teferi</h4>
+                  <p className="text-xs text-neutral-500">Full-Stack Engineer & Founder</p>
+                  <div className="flex items-center gap-2 mt-1 text-[11px] font-mono text-blue-600">
+                    <Terminal className="w-3 h-3" /> Ready for Deployment
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <a
-              href="https://natentertainment.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 text-xs font-mono hover:bg-blue-100 transition-colors hidden sm:block font-medium focus:outline-none focus:ring-2 focus:ring-blue-600"
-            >
-              natentertainment.org ↗
-            </a>
-          </div>
+              <a
+                href="https://natentertainment.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 text-xs font-mono hover:bg-blue-100 transition-colors hidden sm:block font-medium focus:outline-none focus:ring-2 focus:ring-blue-600"
+              >
+                natentertainment.org ↗
+              </a>
+            </div>
+          </Card3DTilt>
         </div>
 
       </div>

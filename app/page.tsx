@@ -5,12 +5,16 @@ import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
 import ScrollToTop from "@/components/ScrollToTop";
+import Global3DBackground from "@/components/Global3DBackground";
 import { Mail, MessageCircle, Send } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-neutral-900 selection:bg-blue-500/20 selection:text-blue-900">
+    <div className="relative min-h-screen bg-white text-neutral-900 selection:bg-blue-500/20 selection:text-blue-900 overflow-hidden">
       
+      {/* Site-Wide Fixed 3D WebGL Background Canvas */}
+      <Global3DBackground />
+
       {/* Semantic Sticky Header Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -62,7 +66,7 @@ export default function Home() {
               <div className="space-y-4 pt-4">
                 <a
                   href="mailto:natikuzmi@gmail.com"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:border-blue-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-50/80 backdrop-blur-md border border-neutral-200 hover:border-blue-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-600"
                   aria-label="Send email to Natnael Teferi"
                 >
                   <div className="p-3 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 group-hover:scale-105 transition-transform">
@@ -78,7 +82,7 @@ export default function Home() {
                   href="https://wa.me/251945653317"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:border-blue-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-50/80 backdrop-blur-md border border-neutral-200 hover:border-blue-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-600"
                   aria-label="Chat on WhatsApp with Natnael Teferi"
                 >
                   <div className="p-3 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 group-hover:scale-105 transition-transform">
@@ -94,7 +98,7 @@ export default function Home() {
                   href="https://t.me/NATENTERTAINMENTSUPPORT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-50 border border-neutral-200 hover:border-blue-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-neutral-50/80 backdrop-blur-md border border-neutral-200 hover:border-blue-300 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-600"
                   aria-label="Message Natnael Teferi on Telegram"
                 >
                   <div className="p-3 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 group-hover:scale-105 transition-transform">
@@ -121,7 +125,7 @@ export default function Home() {
       <ScrollToTop />
 
       {/* Semantic Footer */}
-      <footer className="border-t border-neutral-200 py-8 px-4 sm:px-6 lg:px-8 text-xs font-mono text-neutral-500 bg-neutral-50">
+      <footer className="relative z-10 border-t border-neutral-200 py-8 px-4 sm:px-6 lg:px-8 text-xs font-mono text-neutral-500 bg-neutral-50/90 backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>© {new Date().getFullYear()} Natnael Teferi. All rights reserved.</div>
           <div className="flex items-center gap-4">

@@ -1,6 +1,7 @@
 "use client";
 
 import { Code2, Cpu, Shield } from "lucide-react";
+import Card3DTilt from "./Card3DTilt";
 
 const skillCategories = [
   {
@@ -35,30 +36,32 @@ export default function SkillsMatrix() {
         </p>
       </div>
 
-      {/* Grid */}
+      {/* Grid with 3D Tilt */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {skillCategories.map((cat, idx) => {
           const Icon = cat.icon;
           return (
-            <div key={idx} className="p-6 rounded-2xl bg-neutral-50 border border-neutral-200 shadow-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
-                  <Icon className="w-5 h-5" />
+            <Card3DTilt key={idx}>
+              <div className="p-6 h-full rounded-2xl bg-neutral-50 border border-neutral-200 shadow-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-outfit text-base font-semibold text-neutral-900">{cat.title}</h3>
                 </div>
-                <h3 className="font-outfit text-base font-semibold text-neutral-900">{cat.title}</h3>
-              </div>
 
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill, sIdx) => (
-                  <span
-                    key={sIdx}
-                    className="px-3 py-1.5 rounded-lg bg-white text-xs font-mono text-neutral-800 border border-neutral-200 hover:border-blue-300 transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill, sIdx) => (
+                    <span
+                      key={sIdx}
+                      className="px-3 py-1.5 rounded-lg bg-white text-xs font-mono text-neutral-800 border border-neutral-200 hover:border-blue-500 hover:scale-105 transition-all cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Card3DTilt>
           );
         })}
       </div>

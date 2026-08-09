@@ -5,6 +5,7 @@ import { ExternalLink, Clock, Globe, BookOpen, GitBranch } from "lucide-react";
 import Image from "next/image";
 import CaseStudyModal, { CaseStudyData } from "./CaseStudyModal";
 import BotSandbox from "./BotSandbox";
+import Card3DTilt from "./Card3DTilt";
 
 const categories = ["All", "Flagship & E-Commerce", "Automation & Bots", "Applications", "Ongoing Projects"];
 
@@ -257,7 +258,7 @@ export default function Projects() {
         </a>
       </div>
 
-      {/* Interactive Bot Terminal Sandbox */}
+      {/* Interactive Bot Terminal Sandbox wrapped in 3D Card */}
       <div className="mb-16">
         <div className="mb-3 flex items-center justify-between">
           <h3 className="text-lg font-bold font-outfit text-neutral-900 flex items-center gap-2">
@@ -265,7 +266,9 @@ export default function Projects() {
           </h3>
           <span className="text-xs font-mono text-neutral-500">Try running the simulation below</span>
         </div>
-        <BotSandbox />
+        <Card3DTilt>
+          <BotSandbox />
+        </Card3DTilt>
       </div>
 
       {/* Filter Tabs */}
@@ -285,138 +288,139 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Projects Grid */}
+      {/* Projects Grid with 3D Tilt */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {filteredProjects.map((project, index) => (
-          <article
-            key={index}
-            className={`flex flex-col rounded-3xl bg-white border overflow-hidden transition-all duration-300 group shadow-sm ${
-              project.isFlagship
-                ? "border-blue-300 shadow-lg shadow-blue-600/5 lg:col-span-2 lg:flex-row"
-                : project.isOngoing
-                ? "border-amber-300 bg-amber-50/20"
-                : "border-neutral-200 hover:border-blue-300"
-            }`}
-          >
-            {/* Image Preview Container */}
-            <div className={`relative w-full bg-neutral-100 overflow-hidden ${
-              project.isFlagship ? "lg:w-1/2 aspect-[16/10]" : "aspect-[16/10]"
-            }`}>
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80"></div>
-              
-              <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                <span className={`px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider backdrop-blur-md border ${
-                  project.isFlagship
-                    ? "bg-blue-600 text-white border-blue-500 font-bold"
-                    : project.isOngoing
-                    ? "bg-amber-100 text-amber-800 border-amber-300 font-medium"
-                    : "bg-white/90 text-blue-700 border-blue-200 font-medium"
-                }`}>
-                  {project.isFlagship ? "★ Flagship Live Website" : project.category}
-                </span>
-
-                {project.isOngoing && (
-                  <span className="px-3 py-1 rounded-full text-[11px] font-mono bg-amber-100 text-amber-800 border border-amber-300 backdrop-blur-md flex items-center gap-1.5">
-                    <Clock className="w-3 h-3 text-amber-600 animate-spin" /> In Active Development
+          <Card3DTilt key={index} className={project.isFlagship ? "lg:col-span-2" : ""}>
+            <article
+              className={`flex flex-col rounded-3xl bg-white border overflow-hidden transition-all duration-300 group shadow-sm h-full ${
+                project.isFlagship
+                  ? "border-blue-300 shadow-lg shadow-blue-600/5 lg:flex-row"
+                  : project.isOngoing
+                  ? "border-amber-300 bg-amber-50/20"
+                  : "border-neutral-200 hover:border-blue-300"
+              }`}
+            >
+              {/* Image Preview Container */}
+              <div className={`relative w-full bg-neutral-100 overflow-hidden ${
+                project.isFlagship ? "lg:w-1/2 aspect-[16/10]" : "aspect-[16/10]"
+              }`}>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80"></div>
+                
+                <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                  <span className={`px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider backdrop-blur-md border ${
+                    project.isFlagship
+                      ? "bg-blue-600 text-white border-blue-500 font-bold"
+                      : project.isOngoing
+                      ? "bg-amber-100 text-amber-800 border-amber-300 font-medium"
+                      : "bg-white/90 text-blue-700 border-blue-200 font-medium"
+                  }`}>
+                    {project.isFlagship ? "★ Flagship Live Website" : project.category}
                   </span>
-                )}
-              </div>
-            </div>
 
-            {/* Content Details */}
-            <div className={`p-8 flex-1 flex flex-col justify-between space-y-6 ${
-              project.isFlagship ? "lg:w-1/2" : ""
-            }`}>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-outfit text-2xl font-bold text-neutral-900 group-hover:text-blue-600 transition-colors">
-                    {project.title}
-                  </h3>
-                </div>
-
-                <p className="text-neutral-600 text-sm leading-relaxed font-light">
-                  {project.description}
-                </p>
-
-                {/* Progress bar for ongoing work */}
-                {project.isOngoing && project.progressPercent && (
-                  <div className="pt-2">
-                    <div className="flex justify-between text-[11px] font-mono text-neutral-600 mb-1">
-                      <span>Development Progress</span>
-                      <span className="text-amber-700 font-bold">{project.progressPercent}%</span>
-                    </div>
-                    <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden border border-neutral-200">
-                      <div
-                        className="h-full bg-gradient-to-r from-amber-500 to-blue-600 rounded-full transition-all duration-1000"
-                        style={{ width: `${project.progressPercent}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Highlights List */}
-                <ul className="space-y-1.5 pt-2 text-xs text-neutral-700 font-mono">
-                  {project.highlights?.map((item, hIdx) => (
-                    <li key={hIdx} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span> {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Bottom Actions & Case Study Trigger */}
-              <div className="pt-4 border-t border-neutral-200 space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="px-2.5 py-1 rounded-md bg-neutral-100 text-[11px] font-mono text-neutral-700 border border-neutral-200"
-                    >
-                      {t}
+                  {project.isOngoing && (
+                    <span className="px-3 py-1 rounded-full text-[11px] font-mono bg-amber-100 text-amber-800 border border-amber-300 backdrop-blur-md flex items-center gap-1.5">
+                      <Clock className="w-3 h-3 text-amber-600 animate-spin" /> In Active Development
                     </span>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                  <div className="flex flex-wrap gap-2">
-                    <button
-                      onClick={() => setSelectedCaseStudy(project)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-800 border border-neutral-200 transition-colors"
-                    >
-                      <BookOpen className="w-3.5 h-3.5 text-blue-600" /> Read Case Study
-                    </button>
-
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
-                    >
-                      {project.liveLabel} <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-500 hover:text-neutral-900 transition-colors"
-                    >
-                      <GitBranch className="w-3 h-3 text-blue-600" /> Repo
-                    </a>
                   )}
                 </div>
               </div>
 
-            </div>
-          </article>
+              {/* Content Details */}
+              <div className={`p-8 flex-1 flex flex-col justify-between space-y-6 ${
+                project.isFlagship ? "lg:w-1/2" : ""
+              }`}>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-outfit text-2xl font-bold text-neutral-900 group-hover:text-blue-600 transition-colors">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-neutral-600 text-sm leading-relaxed font-light">
+                    {project.description}
+                  </p>
+
+                  {/* Progress bar for ongoing work */}
+                  {project.isOngoing && project.progressPercent && (
+                    <div className="pt-2">
+                      <div className="flex justify-between text-[11px] font-mono text-neutral-600 mb-1">
+                        <span>Development Progress</span>
+                        <span className="text-amber-700 font-bold">{project.progressPercent}%</span>
+                      </div>
+                      <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden border border-neutral-200">
+                        <div
+                          className="h-full bg-gradient-to-r from-amber-500 to-blue-600 rounded-full transition-all duration-1000"
+                          style={{ width: `${project.progressPercent}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Highlights List */}
+                  <ul className="space-y-1.5 pt-2 text-xs text-neutral-700 font-mono">
+                    {project.highlights?.map((item, hIdx) => (
+                      <li key={hIdx} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Bottom Actions & Case Study Trigger */}
+                <div className="pt-4 border-t border-neutral-200 space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="px-2.5 py-1 rounded-md bg-neutral-100 text-[11px] font-mono text-neutral-700 border border-neutral-200"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        onClick={() => setSelectedCaseStudy(project)}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-800 border border-neutral-200 transition-colors"
+                      >
+                        <BookOpen className="w-3.5 h-3.5 text-blue-600" /> Read Case Study
+                      </button>
+
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+                      >
+                        {project.liveLabel} <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-500 hover:text-neutral-900 transition-colors"
+                      >
+                        <GitBranch className="w-3 h-3 text-blue-600" /> Repo
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+              </div>
+            </article>
+          </Card3DTilt>
         ))}
       </div>
 
