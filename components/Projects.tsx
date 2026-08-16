@@ -20,7 +20,7 @@ const projectsList: (CaseStudyData & {
     category: "Flagship & E-Commerce",
     isFlagship: true,
     isOngoing: false,
-    image: "/assets/nat_entertainment.jpg",
+    image: "/assets/nat_entertainment.png",
     description:
       "A comprehensive digital sales platform and portal providing digital media packages, software licenses, automated delivery workflows, and instant customer support integration.",
     problem:
