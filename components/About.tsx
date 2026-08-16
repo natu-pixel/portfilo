@@ -9,7 +9,7 @@ export default function About() {
       
       {/* Section Header */}
       <div className="max-w-3xl mb-16">
-        <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-semibold">About & Philosophy</span>
+        <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-semibold">Engineering Profile</span>
         <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mt-2">
           Bridging High-Level Software with <span className="text-blue-600">Low-Level Infrastructure.</span>
         </h2>
@@ -18,10 +18,10 @@ export default function About() {
         <Card3DTilt className="mt-6">
           <div className="p-6 rounded-2xl bg-blue-50/50 border border-blue-100 space-y-3">
             <p className="text-neutral-700 text-base leading-relaxed font-light">
-              I’m <strong className="font-semibold text-neutral-900">Natnael Teferi</strong>, a software engineer passionate about clean code and intuitive design. My journey started when I built my first website at 16. With a B.Sc. in Computer Science and certified expertise in Computer Maintenance and Networking, I believe in <span className="text-blue-600 font-medium">learning by building</span> — every project teaches me a new lesson.
+              I’m <strong className="font-semibold text-neutral-900">Natnael Teferi</strong>, a full-stack software engineer and founder specializing in high-performance web applications, sub-50ms trading automation, and enterprise IT infrastructure. Holding a B.Sc. in Computer Science alongside certified credentials in Computer Maintenance & Networking, I combine algorithmic precision with hardware and network reliability.
             </p>
             <p className="text-neutral-600 text-sm leading-relaxed font-light">
-              As a developer, I believe simplicity wins. Whether it’s clean UI or optimized server performance, I start with the user’s needs, write efficient code, and iterate based on real feedback.
+              From engineering live platforms like <a href="https://natentertainment.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline font-medium">natentertainment.org</a> to deploying automated execution algorithms, my focus is building fast, secure, and resilient systems that solve real technical challenges.
             </p>
           </div>
         </Card3DTilt>
