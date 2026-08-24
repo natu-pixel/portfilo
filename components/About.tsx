@@ -2,14 +2,15 @@
 
 import { GraduationCap, Server, Wrench, CheckCircle2 } from "lucide-react";
 import Card3DTilt from "./Card3DTilt";
+import StoryArcSwitcher from "./StoryArcSwitcher";
 
 export default function About() {
   return (
     <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-neutral-200" aria-label="About Section">
       
       {/* Section Header */}
-      <div className="max-w-3xl mb-16">
-        <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-semibold">Engineering Profile</span>
+      <div className="max-w-3xl mb-12">
+        <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-semibold">Engineering Profile & Story Arc</span>
         <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mt-2">
           Bridging High-Level Software with <span className="text-blue-600">Low-Level Infrastructure.</span>
         </h2>
@@ -27,8 +28,11 @@ export default function About() {
         </Card3DTilt>
       </div>
 
+      {/* Interactive Story Arc Switcher (Speed Run | Level Up | Full Chronology) */}
+      <StoryArcSwitcher />
+
       {/* 3 Pillar Cards wrapped in 3D Perspective Tilt */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
         
         {/* Pillar 1 */}
         <Card3DTilt>

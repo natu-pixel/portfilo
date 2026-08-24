@@ -1,44 +1,59 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Terminal, Play, Square, RefreshCw, CheckCircle, ShieldAlert, Zap } from "lucide-react";
+import { Play, Square, RefreshCw, Terminal, Zap, ShieldAlert, BarChart2, DollarSign } from "lucide-react";
 
-const sampleLogs = [
-  { type: "sys", text: "[SYS] Initializing WebSockets connection to Binance & DEX order books..." },
-  { type: "sys", text: "[SYS] Connection established (latency: 18ms). Subscribing to BTC/USDT & ETH/USDT streams." },
-  { type: "info", text: "[MARKET] BTC/USDT Bid: $67,420.50 | Ask: $67,421.10 (Volume 24h: 18.4K BTC)" },
-  { type: "calc", text: "[ALGO] Evaluating RSI(14) = 32.4 (Oversold condition detected). Preparing buy signal." },
-  { type: "order", text: "[EXEC] Placing LIMIT BUY order #89421 @ $67,420.50 [Qty: 0.15 BTC]" },
-  { type: "success", text: "[CONFIRM] Order #89421 FILLED in 32ms. Execution Price: $67,420.50" },
-  { type: "calc", text: "[RISK] Trailing stop-loss set to $66,950.00 (-0.70%). Profit Target: $68,100.00 (+1.00%)" },
-  { type: "info", text: "[MARKET] Price surge detected. BTC/USDT: $68,105.00 (+1.02%)" },
-  { type: "success", text: "[PROFIT] Take-profit target reached! Sell order executed. Net profit: +$102.67 (+1.01%)" },
-  { type: "sys", text: "[SYS] Bot engine active. Listening for high-probability liquidity setups..." },
-];
+const strategyLogs: Record<string, string[]> = {
+  Arbitrage: [
+    "[WEBSOCKET] Connected to Binance & Bybit Mempools...",
+    "[SCANNER] Price Discrepancy Detected: BTC/USDT +0.42%",
+    "[CHECK] Flash Loan Gas Estimation: 0.0012 ETH (Profitable)",
+    "[EXEC] Transacting Atomic Swap via Smart Contract...",
+    "[CONFIRM] Flash Loan Repaid. Net Arbitrage Profit: +$412.80 USDT",
+  ],
+  Scalping: [
+    "[FEED] Sub-20ms Tick Ingestion Active...",
+    "[INDICATOR] RSI (14) = 28.4 (Oversold), MACD Crossover confirmed.",
+    "[ORDER] Placing Limit Buy Order @ $64,210.50...",
+    "[FILLED] Position opened. Setting Trailing Stop-Loss @ 0.3%.",
+    "[PROFIT] Target Met! Position Closed. Return: +1.85%",
+  ],
+  TrendFollowing: [
+    "[DATA] 4H Exponential Moving Average (EMA 50 > EMA 200) Golden Cross.",
+    "[RISK] Position Sizing calculated at 2% total equity risk.",
+    "[ALGO] Buying Breakout Channel @ $64,500...",
+    "[MONITOR] Trailing Stop-Loss adjusting dynamically...",
+    "[LOG] Trailing Stop Hit @ $65,890. Profit Locked: +$1,390.00",
+  ],
+};
 
 export default function BotSandbox() {
-  const [isRunning, setIsRunning] = useState(false);
+  const [strategy, setStrategy] = useState<"Arbitrage" | "Scalping" | "TrendFollowing">("Arbitrage");
+  const [isRunning, setIsRunning] = useState(true);
+  const [riskLevel, setRiskLevel] = useState(2);
+  const [latency, setLatency] = useState(14);
   const [logs, setLogs] = useState<string[]>([
-    "[SYS] Algorithmic Bot Terminal ready.",
-    "[SYS] Click 'Run Strategy Simulation' below to see real-time order book execution logs."
+    "[SYS] Algorithmic Bot Kernel Initialized.",
+    "[SYS] Sub-20ms WebSocket Connection Established.",
   ]);
-  const logEndRef = useRef<HTMLDivElement>(null);
+
+  const terminalBoxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
     if (isRunning) {
       let logIndex = 0;
+      const currentLogs = strategyLogs[strategy];
       interval = setInterval(() => {
-        const nextLog = sampleLogs[logIndex % sampleLogs.length];
+        const nextLog = currentLogs[logIndex % currentLogs.length];
         const timestamp = new Date().toISOString().split("T")[1].slice(0, 8);
-        setLogs((prev) => [...prev, `[${timestamp}] ${nextLog.text}`]);
+        setLogs((prev) => [...prev, `[${timestamp}] ${nextLog}`]);
+        setLatency(Math.floor(Math.random() * 8) + 12); // Random 12-20ms latency
         logIndex++;
       }, 1200);
     }
     return () => clearInterval(interval);
-  }, [isRunning]);
-
-  const terminalBoxRef = useRef<HTMLDivElement>(null);
+  }, [isRunning, strategy]);
 
   useEffect(() => {
     if (terminalBoxRef.current) {
@@ -48,7 +63,7 @@ export default function BotSandbox() {
 
   const toggleRun = () => {
     if (!isRunning) {
-      setLogs((prev) => [...prev, `[${new Date().toISOString().split("T")[1].slice(0, 8)}] [SYS] Starting Automated Strategy Loop...`]);
+      setLogs((prev) => [...prev, `[${new Date().toISOString().split("T")[1].slice(0, 8)}] [SYS] Resuming ${strategy} Strategy Loop...`]);
     }
     setIsRunning(!isRunning);
   };
@@ -57,55 +72,116 @@ export default function BotSandbox() {
     setLogs(["[SYS] Terminal cleared."]);
   };
 
+  const executeManualTrade = () => {
+    const timestamp = new Date().toISOString().split("T")[1].slice(0, 8);
+    setLogs((prev) => [
+      ...prev,
+      `[${timestamp}] [MANUAL] Instant Order Triggered by User. Executing ${strategy} @ Risk Factor ${riskLevel}x...`,
+      `[${timestamp}] [CONFIRM] Order Executed Successfully! Latency: ${latency}ms`,
+    ]);
+  };
+
   return (
-    <div className="w-full rounded-2xl bg-neutral-950 border border-neutral-800 overflow-hidden shadow-xl my-6">
+    <div className="w-full rounded-3xl bg-neutral-950 border border-neutral-800 overflow-hidden shadow-2xl my-6">
+      
       {/* Header Bar */}
-      <div className="flex items-center justify-between px-4 py-3 bg-neutral-900 border-b border-neutral-800">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-neutral-900 border-b border-neutral-800 gap-4">
+        <div className="flex items-center gap-3">
           <div className="flex gap-1.5">
             <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
             <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
             <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
           </div>
-          <span className="text-xs font-mono text-neutral-400 flex items-center gap-1.5 ml-2">
-            <Terminal className="w-3.5 h-3.5 text-blue-400" /> Bot Execution Sandbox Terminal
+          <span className="text-xs font-mono text-neutral-300 flex items-center gap-1.5 font-bold">
+            <Terminal className="w-4 h-4 text-blue-400" /> Interactive Live Trading Bot Sandbox
           </span>
         </div>
 
-        <div className="flex items-center gap-2">
+        {/* Strategy Selector Tabs */}
+        <div className="flex items-center gap-2 bg-neutral-950 p-1 rounded-xl border border-neutral-800">
+          {(["Arbitrage", "Scalping", "TrendFollowing"] as const).map((strat) => (
+            <button
+              key={strat}
+              onClick={() => {
+                setStrategy(strat);
+                setLogs((prev) => [...prev, `[SYS] Switched Active Strategy to ${strat}`]);
+              }}
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors ${
+                strategy === strat
+                  ? "bg-blue-600 text-white font-semibold"
+                  : "text-neutral-400 hover:text-white"
+              }`}
+            >
+              {strat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Control & Risk Panel */}
+      <div className="px-4 py-3 bg-neutral-900/60 border-b border-neutral-800/80 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+        <div className="flex items-center gap-4">
           <button
             onClick={toggleRun}
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono font-semibold transition-colors ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors ${
               isRunning
                 ? "bg-amber-500/20 text-amber-400 border border-amber-500/40 hover:bg-amber-500/30"
                 : "bg-blue-600 hover:bg-blue-500 text-white"
             }`}
           >
             {isRunning ? <Square className="w-3 h-3 fill-current" /> : <Play className="w-3 h-3 fill-current" />}
-            {isRunning ? "Stop Simulation" : "Run Strategy Simulation"}
+            {isRunning ? "Pause Engine" : "Start Engine"}
+          </button>
+
+          <button
+            onClick={executeManualTrade}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors"
+          >
+            <DollarSign className="w-3.5 h-3.5" /> Execute Test Trade
           </button>
 
           <button
             onClick={clearLogs}
             className="p-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-400 hover:text-white transition-colors"
-            title="Clear Logs"
+            title="Clear Terminal Logs"
           >
             <RefreshCw className="w-3.5 h-3.5" />
           </button>
         </div>
+
+        {/* Risk Slider & Latency Indicator */}
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 text-neutral-400">
+            <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
+            <span>Risk Multiplier: <strong className="text-white">{riskLevel}x</strong></span>
+            <input
+              type="range"
+              min="1"
+              max="5"
+              value={riskLevel}
+              onChange={(e) => setRiskLevel(Number(e.target.value))}
+              className="w-16 accent-blue-500 cursor-pointer"
+            />
+          </div>
+
+          <div className="flex items-center gap-1.5 text-emerald-400">
+            <Zap className="w-3.5 h-3.5" />
+            <span>{latency}ms Latency</span>
+          </div>
+        </div>
       </div>
 
       {/* Terminal Output Screen */}
-      <div ref={terminalBoxRef} className="p-4 h-56 overflow-y-auto font-mono text-xs text-neutral-300 space-y-1.5 bg-neutral-950">
+      <div ref={terminalBoxRef} className="p-4 h-64 overflow-y-auto font-mono text-xs text-neutral-300 space-y-2 bg-neutral-950">
         {logs.map((log, i) => (
           <div
             key={i}
             className={`${
               log.includes("[CONFIRM]") || log.includes("[PROFIT]")
                 ? "text-emerald-400 font-semibold"
-                : log.includes("[EXEC]") || log.includes("[ALGO]")
+                : log.includes("[EXEC]") || log.includes("[ALGO]") || log.includes("[MANUAL]")
                 ? "text-blue-400"
-                : log.includes("[RISK]")
+                : log.includes("[RISK]") || log.includes("[CHECK]")
                 ? "text-amber-400"
                 : "text-neutral-400"
             }`}
@@ -115,15 +191,14 @@ export default function BotSandbox() {
         ))}
       </div>
 
-      {/* Footer Info Bar */}
-      <div className="px-4 py-2 bg-neutral-900/60 border-t border-neutral-800 flex items-center justify-between text-[11px] font-mono text-neutral-500">
-        <span className="flex items-center gap-1.5">
-          <Zap className="w-3 h-3 text-blue-400" /> Sub-50ms Execution Latency
+      {/* Footer Live Order Book Depth Bar */}
+      <div className="px-4 py-2.5 bg-neutral-900 border-t border-neutral-800 flex flex-wrap items-center justify-between text-[11px] font-mono text-neutral-400">
+        <span className="flex items-center gap-2">
+          <BarChart2 className="w-3.5 h-3.5 text-blue-400" /> Simulated Order Book Depth: <strong className="text-emerald-400">BID $64,210.50</strong> / <strong className="text-red-400">ASK $64,211.20</strong>
         </span>
-        <span className="flex items-center gap-1.5">
-          <CheckCircle className="w-3 h-3 text-emerald-400" /> WebSockets Connected
-        </span>
+        <span className="text-neutral-500 hidden sm:inline">Engine: WebSockets + Python AsyncIO</span>
       </div>
+
     </div>
   );
 }

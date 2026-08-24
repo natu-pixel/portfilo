@@ -1,26 +1,205 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, Clock, Globe, BookOpen, GitBranch } from "lucide-react";
-import Image from "next/image";
+import { ExternalLink, Clock, Globe, BookOpen, GitBranch, Terminal, Shield, Play, Key, RefreshCw, Layers } from "lucide-react";
 import CaseStudyModal, { CaseStudyData } from "./CaseStudyModal";
 import BotSandbox from "./BotSandbox";
 import Card3DTilt from "./Card3DTilt";
 
 const categories = ["All", "Flagship & E-Commerce", "Automation & Bots", "Applications", "Ongoing Projects"];
 
+// Interactive Live Previews replacing static pictures
+function NatEntertainmentPreview() {
+  const [key, setKey] = useState("NAT-ENT-8842-X91A");
+  const [copied, setCopied] = useState(false);
+
+  const generateKey = () => {
+    const chars = "0123456789ABCDEF";
+    let result = "NAT-ENT-";
+    for (let i = 0; i < 4; i++) result += chars[Math.floor(Math.random() * chars.length)];
+    result += "-";
+    for (let i = 0; i < 4; i++) result += chars[Math.floor(Math.random() * chars.length)];
+    setKey(result);
+    setCopied(false);
+  };
+
+  return (
+    <div className="w-full h-full min-h-[240px] bg-neutral-900 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800 lg:border-b-0 lg:border-r">
+      <div className="flex items-center justify-between">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-blue-400 font-bold flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> Live License Dispatch Engine
+        </span>
+        <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
+          SYSTEM: 99.9% UPTIME
+        </span>
+      </div>
+
+      <div className="my-4 space-y-3 bg-neutral-950/80 p-4 rounded-2xl border border-neutral-800">
+        <div className="text-xs font-mono text-neutral-400 flex items-center gap-2">
+          <Key className="w-4 h-4 text-blue-400" /> Digital License Generator Simulator:
+        </div>
+        <div className="flex items-center justify-between gap-2 bg-neutral-900 p-2.5 rounded-xl border border-neutral-800 font-mono text-sm">
+          <span className="text-blue-400 font-bold tracking-wider">{key}</span>
+          <button
+            onClick={() => {
+              setCopied(true);
+              setTimeout(() => setCopied(false), 1500);
+            }}
+            className="px-2.5 py-1 rounded bg-blue-600 hover:bg-blue-500 text-[11px] font-semibold text-white transition-colors"
+          >
+            {copied ? "Copied!" : "Copy"}
+          </button>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
+        <span>Instant Webhook Delivery</span>
+        <button
+          onClick={generateKey}
+          className="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold"
+        >
+          <RefreshCw className="w-3.5 h-3.5" /> Test Generate
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function TradingBotPreview() {
+  return (
+    <div className="w-full h-full min-h-[240px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
+      <div className="flex items-center justify-between">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-emerald-400 font-bold flex items-center gap-1.5">
+          <Terminal className="w-3.5 h-3.5" /> Sub-50ms WebSocket Feed
+        </span>
+        <span className="text-[10px] font-mono text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800">
+          ALGO: ACTIVE
+        </span>
+      </div>
+
+      {/* Simulated Candlestick Chart Canvas */}
+      <div className="my-3 h-24 flex items-end justify-between gap-1 px-2 py-3 bg-neutral-900/80 rounded-2xl border border-neutral-800">
+        {[40, 65, 30, 85, 45, 90, 70, 95, 60, 100].map((h, idx) => (
+          <div key={idx} className="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+            <div
+              className={`w-full rounded-sm transition-all duration-500 ${
+                idx % 2 === 0 ? "bg-emerald-500" : "bg-blue-500"
+              }`}
+              style={{ height: `${h}%` }}
+            ></div>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
+        <span>Order Book Depth: 1,480 Ticks/sec</span>
+        <span className="text-emerald-400 font-semibold">+1.85% Arbitrage Profit</span>
+      </div>
+    </div>
+  );
+}
+
+function InventorySaaSPreview() {
+  const [stock, setStock] = useState(42);
+
+  return (
+    <div className="w-full h-full min-h-[240px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
+      <div className="flex items-center justify-between">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-amber-400 font-bold flex items-center gap-1.5">
+          <Layers className="w-3.5 h-3.5" /> Multi-Tenant SaaS Dispatch
+        </span>
+        <span className="text-[10px] font-mono text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800">
+          STAGE: 75%
+        </span>
+      </div>
+
+      <div className="my-3 bg-neutral-900/80 p-4 rounded-2xl border border-neutral-800 space-y-2 font-mono">
+        <div className="flex justify-between text-xs text-neutral-400">
+          <span>Spare Part Item #8841:</span>
+          <span className="text-white font-bold">{stock} Units In Stock</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setStock((s) => s + 1)}
+            className="flex-1 py-1.5 rounded bg-amber-600 hover:bg-amber-500 text-xs font-bold text-white transition-colors"
+          >
+            + Dispatch Unit
+          </button>
+          <button
+            onClick={() => setStock((s) => Math.max(0, s - 1))}
+            className="flex-1 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-xs font-bold text-neutral-300 transition-colors"
+          >
+            - Audit Stock
+          </button>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
+        <span>PostgreSQL & Prisma ORM</span>
+        <span className="text-amber-400 font-semibold">RBAC Security</span>
+      </div>
+    </div>
+  );
+}
+
+function IPTVPreview() {
+  const [activeChannel, setActiveChannel] = useState("CH 1: 4K Sports HD");
+
+  return (
+    <div className="w-full h-full min-h-[240px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
+      <div className="flex items-center justify-between">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-blue-400 font-bold flex items-center gap-1.5">
+          <Play className="w-3.5 h-3.5 text-blue-400 fill-current" /> HLS.js Custom Stream Player
+        </span>
+        <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
+          BUFFER: 300MS
+        </span>
+      </div>
+
+      <div className="my-3 bg-neutral-900/80 p-3 rounded-2xl border border-neutral-800 font-mono space-y-2">
+        <div className="text-xs text-blue-400 font-bold flex items-center justify-between">
+          <span>Active Stream:</span>
+          <span>{activeChannel}</span>
+        </div>
+        <div className="grid grid-cols-2 gap-2 text-[11px]">
+          {["CH 1: 4K Sports HD", "CH 2: News 24/7", "CH 3: Movies Ultra", "CH 4: Docu Stream"].map((ch, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveChannel(ch)}
+              className={`p-1.5 rounded border transition-colors ${
+                activeChannel === ch
+                  ? "bg-blue-600 text-white border-blue-500 font-bold"
+                  : "bg-neutral-800 text-neutral-400 border-neutral-700 hover:text-white"
+              }`}
+            >
+              {ch}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
+        <span>M3U / EPG Playlist Parser</span>
+        <span className="text-blue-400 font-semibold">Zero Frame Drop</span>
+      </div>
+    </div>
+  );
+}
+
 const projectsList: (CaseStudyData & {
   isFlagship?: boolean;
   isOngoing?: boolean;
   progressPercent?: number;
   liveLabel: string;
+  previewComponent: React.ComponentType;
 })[] = [
   {
     title: "Nat Entertainment Sales Platform",
     category: "Flagship & E-Commerce",
     isFlagship: true,
     isOngoing: false,
-    image: "/assets/nat_entertainment.png",
+    image: "",
+    previewComponent: NatEntertainmentPreview,
     description:
       "A comprehensive digital sales platform and portal providing digital media packages, software licenses, automated delivery workflows, and instant customer support integration.",
     problem:
@@ -53,7 +232,8 @@ const projectsList: (CaseStudyData & {
     category: "Automation & Bots",
     isFlagship: false,
     isOngoing: false,
-    image: "/assets/trading_bot.jpg",
+    image: "",
+    previewComponent: TradingBotPreview,
     description:
       "A high-frequency algorithmic trading engine designed to monitor live market order books, execute automated technical strategy indicators, and manage risk with sub-second latency.",
     problem:
@@ -87,7 +267,8 @@ const projectsList: (CaseStudyData & {
     isFlagship: false,
     isOngoing: true,
     progressPercent: 75,
-    image: "/assets/finance_tracker.jpg",
+    image: "",
+    previewComponent: InventorySaaSPreview,
     description:
       "Currently under active development: A multi-tenant SaaS inventory management & CRM suite engineered for hardware suppliers and IT maintenance service providers.",
     problem:
@@ -116,76 +297,12 @@ const projectsList: (CaseStudyData & {
     ],
   },
   {
-    title: "Multi-Chain Crypto Arbitrage Bot v2",
-    category: "Ongoing Projects",
-    isFlagship: false,
-    isOngoing: true,
-    progressPercent: 60,
-    image: "/assets/trading_bot.jpg",
-    description:
-      "Currently under active development: An upgraded cross-DEX liquidity scanner and flash loan arbitrage bot with automated slippage detection and gas-optimized smart contracts.",
-    problem:
-      "Cross-DEX price discrepancies disappear in seconds, requiring automated flash loan execution before public mempools front-run transactions.",
-    solution:
-      "Writing Web3.py listeners and Solidity smart contracts to atomic-swap flash loans across Uniswap, Sushiswap, and PancakeSwap.",
-    impactMetrics: [
-      { label: "Development Stage", value: "60%" },
-      { label: "DEX Networks", value: "4 Chains" },
-      { label: "Atomic Safety", value: "Flash Loans" },
-    ],
-    architectureDetails: [
-      "Cross-chain mempool scanner for price divergence",
-      "Gas estimation calculation to guarantee profitable swaps",
-      "Atomic flash loan contracts to prevent loss of principal",
-    ],
-    tech: ["Python", "Solidity", "Ethers.js", "Web3.py"],
-    demoUrl: "https://t.me/NATENTERTAINMENTSUPPORT",
-    githubUrl: "https://github.com/natu-pixel/portfilo",
-    liveLabel: "In Active Development",
-    highlights: [
-      "Live active development phase (60% completed)",
-      "Cross-DEX liquidity monitoring across multiple chains",
-      "Automated profit calculation after gas estimation",
-    ],
-  },
-  {
-    title: "Gourmet Restaurant Platform",
-    category: "Applications",
-    isFlagship: false,
-    isOngoing: false,
-    image: "/assets/restaurant_website.jpg",
-    description:
-      "An interactive restaurant platform with dynamic menu management, table reservation system, and real-time online ordering integration with elegant visual aesthetic.",
-    problem:
-      "Traditional paper menus and phone reservations lead to order errors and lost booking revenue during peak hours.",
-    solution:
-      "Built a modern digital web platform with interactive menu filtering, instant table reservation forms, and mobile ordering UI.",
-    impactMetrics: [
-      { label: "Mobile Traffic", value: "85%" },
-      { label: "Booking Speed", value: "< 1 Min" },
-      { label: "Customer Rating", value: "4.9★" },
-    ],
-    architectureDetails: [
-      "Framer Motion micro-animations for interactive menus",
-      "Form validation for instant reservation requests",
-      "SEO-optimized schema markup for local restaurant discovery",
-    ],
-    tech: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-    demoUrl: "https://wa.me/251945653317",
-    githubUrl: "https://github.com/natu-pixel/portfilo",
-    liveLabel: "View Platform Demo",
-    highlights: [
-      "Dynamic interactive digital menu",
-      "Online table reservation workflow",
-      "Mobile-first responsive design system",
-    ],
-  },
-  {
     title: "IPTV Player Application",
     category: "Applications",
     isFlagship: false,
     isOngoing: false,
-    image: "/assets/iptv_player.jpg",
+    image: "",
+    previewComponent: IPTVPreview,
     description:
       "A high-performance IPTV streaming player featuring M3U playlist parsing, EPG channel guide integration, custom player controls, and low-latency stream buffer management.",
     problem:
@@ -235,16 +352,16 @@ export default function Projects() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-semibold">Featured Work & Live Projects</span>
+            <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-semibold">Featured Work & Live Previews</span>
             <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-ping"></span> 2 Active Developments
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-ping"></span> Live Interactive Previews
             </span>
           </div>
           <h2 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900">
             Selected Work & Platforms
           </h2>
           <p className="text-neutral-600 mt-2 text-base font-light max-w-xl">
-            Click any project to read the detailed Case Study, view GitHub code repositories, or test out the live bot execution sandbox below.
+            Interact with live code widgets below or click any project to read the full Case Study and view code repositories.
           </p>
         </div>
 
@@ -260,12 +377,6 @@ export default function Projects() {
 
       {/* Interactive Bot Terminal Sandbox wrapped in 3D Card */}
       <div className="mb-16">
-        <div className="mb-3 flex items-center justify-between">
-          <h3 className="text-lg font-bold font-outfit text-neutral-900 flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-600"></span> Interactive Bot Terminal Sandbox
-          </h3>
-          <span className="text-xs font-mono text-neutral-500">Try running the simulation below</span>
-        </div>
         <Card3DTilt>
           <BotSandbox />
         </Card3DTilt>
@@ -283,145 +394,124 @@ export default function Projects() {
                 : "bg-neutral-100 text-neutral-600 hover:text-neutral-900 border border-neutral-200"
             }`}
           >
-            {cat} {cat === "Ongoing Projects" && "(2 Active)"}
+            {cat} {cat === "Ongoing Projects" && "(1 Active)"}
           </button>
         ))}
       </div>
 
-      {/* Projects Grid with 3D Tilt */}
+      {/* Projects Grid with Live Interactive Previews (Zero Static Pictures) */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {filteredProjects.map((project, index) => (
-          <Card3DTilt key={index} className={project.isFlagship ? "lg:col-span-2" : ""}>
-            <article
-              className={`flex flex-col rounded-3xl bg-white border overflow-hidden transition-all duration-300 group shadow-sm h-full ${
-                project.isFlagship
-                  ? "border-blue-300 shadow-lg shadow-blue-600/5 lg:flex-row"
-                  : project.isOngoing
-                  ? "border-amber-300 bg-amber-50/20"
-                  : "border-neutral-200 hover:border-blue-300"
-              }`}
-            >
-              {/* Image Preview Container */}
-              <div className={`relative w-full bg-neutral-100 overflow-hidden ${
-                project.isFlagship ? "lg:w-1/2 aspect-[16/10]" : "aspect-[16/10]"
-              }`}>
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80"></div>
-                
-                <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                  <span className={`px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider backdrop-blur-md border ${
-                    project.isFlagship
-                      ? "bg-blue-600 text-white border-blue-500 font-bold"
-                      : project.isOngoing
-                      ? "bg-amber-100 text-amber-800 border-amber-300 font-medium"
-                      : "bg-white/90 text-blue-700 border-blue-200 font-medium"
-                  }`}>
-                    {project.isFlagship ? "★ Flagship Live Website" : project.category}
-                  </span>
-
-                  {project.isOngoing && (
-                    <span className="px-3 py-1 rounded-full text-[11px] font-mono bg-amber-100 text-amber-800 border border-amber-300 backdrop-blur-md flex items-center gap-1.5">
-                      <Clock className="w-3 h-3 text-amber-600 animate-spin" /> In Active Development
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Content Details */}
-              <div className={`p-8 flex-1 flex flex-col justify-between space-y-6 ${
-                project.isFlagship ? "lg:w-1/2" : ""
-              }`}>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-outfit text-2xl font-bold text-neutral-900 group-hover:text-blue-600 transition-colors">
-                      {project.title}
-                    </h3>
-                  </div>
-
-                  <p className="text-neutral-600 text-sm leading-relaxed font-light">
-                    {project.description}
-                  </p>
-
-                  {/* Progress bar for ongoing work */}
-                  {project.isOngoing && project.progressPercent && (
-                    <div className="pt-2">
-                      <div className="flex justify-between text-[11px] font-mono text-neutral-600 mb-1">
-                        <span>Development Progress</span>
-                        <span className="text-amber-700 font-bold">{project.progressPercent}%</span>
-                      </div>
-                      <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden border border-neutral-200">
-                        <div
-                          className="h-full bg-gradient-to-r from-amber-500 to-blue-600 rounded-full transition-all duration-1000"
-                          style={{ width: `${project.progressPercent}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Highlights List */}
-                  <ul className="space-y-1.5 pt-2 text-xs text-neutral-700 font-mono">
-                    {project.highlights?.map((item, hIdx) => (
-                      <li key={hIdx} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span> {item}
-                      </li>
-                    ))}
-                  </ul>
+        {filteredProjects.map((project, index) => {
+          const PreviewComp = project.previewComponent;
+          return (
+            <Card3DTilt key={index} className={project.isFlagship ? "lg:col-span-2" : ""}>
+              <article
+                className={`flex flex-col rounded-3xl bg-white border overflow-hidden transition-all duration-300 group shadow-sm h-full ${
+                  project.isFlagship
+                    ? "border-blue-300 shadow-lg shadow-blue-600/5 lg:flex-row"
+                    : project.isOngoing
+                    ? "border-amber-300 bg-amber-50/20"
+                    : "border-neutral-200 hover:border-blue-300"
+                }`}
+              >
+                {/* Live Interactive Preview Container (Replaces static picture) */}
+                <div className={`relative w-full overflow-hidden ${
+                  project.isFlagship ? "lg:w-1/2" : ""
+                }`}>
+                  <PreviewComp />
                 </div>
 
-                {/* Bottom Actions & Case Study Trigger */}
-                <div className="pt-4 border-t border-neutral-200 space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((t, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="px-2.5 py-1 rounded-md bg-neutral-100 text-[11px] font-mono text-neutral-700 border border-neutral-200"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                    <div className="flex flex-wrap gap-2">
-                      <button
-                        onClick={() => setSelectedCaseStudy(project)}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-800 border border-neutral-200 transition-colors"
-                      >
-                        <BookOpen className="w-3.5 h-3.5 text-blue-600" /> Read Case Study
-                      </button>
-
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
-                      >
-                        {project.liveLabel} <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
+                {/* Content Details */}
+                <div className={`p-8 flex-1 flex flex-col justify-between space-y-6 ${
+                  project.isFlagship ? "lg:w-1/2" : ""
+                }`}>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-outfit text-2xl font-bold text-neutral-900 group-hover:text-blue-600 transition-colors">
+                        {project.title}
+                      </h3>
                     </div>
 
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-500 hover:text-neutral-900 transition-colors"
-                      >
-                        <GitBranch className="w-3 h-3 text-blue-600" /> Repo
-                      </a>
+                    <p className="text-neutral-600 text-sm leading-relaxed font-light">
+                      {project.description}
+                    </p>
+
+                    {/* Progress bar for ongoing work */}
+                    {project.isOngoing && project.progressPercent && (
+                      <div className="pt-2">
+                        <div className="flex justify-between text-[11px] font-mono text-neutral-600 mb-1">
+                          <span>Development Progress</span>
+                          <span className="text-amber-700 font-bold">{project.progressPercent}%</span>
+                        </div>
+                        <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden border border-neutral-200">
+                          <div
+                            className="h-full bg-gradient-to-r from-amber-500 to-blue-600 rounded-full transition-all duration-1000"
+                            style={{ width: `${project.progressPercent}%` }}
+                          ></div>
+                        </div>
+                      </div>
                     )}
-                  </div>
-                </div>
 
-              </div>
-            </article>
-          </Card3DTilt>
-        ))}
+                    {/* Highlights List */}
+                    <ul className="space-y-1.5 pt-2 text-xs text-neutral-700 font-mono">
+                      {project.highlights?.map((item, hIdx) => (
+                        <li key={hIdx} className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span> {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Bottom Actions & Case Study Trigger */}
+                  <div className="pt-4 border-t border-neutral-200 space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((t, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="px-2.5 py-1 rounded-md bg-neutral-100 text-[11px] font-mono text-neutral-700 border border-neutral-200"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+                      <div className="flex flex-wrap gap-2">
+                        <button
+                          onClick={() => setSelectedCaseStudy(project)}
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-800 border border-neutral-200 transition-colors"
+                        >
+                          <BookOpen className="w-3.5 h-3.5 text-blue-600" /> Read Case Study
+                        </button>
+
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+                        >
+                          {project.liveLabel} <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-500 hover:text-neutral-900 transition-colors"
+                        >
+                          <GitBranch className="w-3 h-3 text-blue-600" /> Repo
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                </div>
+              </article>
+            </Card3DTilt>
+          );
+        })}
       </div>
 
     </section>
