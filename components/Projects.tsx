@@ -1,41 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, Clock, Globe, BookOpen, GitBranch, Terminal, Shield, Play, Key, RefreshCw, Layers, Tv, Users, Code2 } from "lucide-react";
+import { ExternalLink, Clock, Globe, BookOpen, GitBranch, Terminal, Shield, Play, Layers, Tv, Users, Code2, Sparkles } from "lucide-react";
 import CaseStudyModal, { CaseStudyData } from "./CaseStudyModal";
 import BotSandbox from "./BotSandbox";
 import Card3DTilt from "./Card3DTilt";
 
 const categories = ["All", "Flagship & E-Commerce", "Automation & Bots", "Applications", "Ongoing Projects"];
 
-// Interactive Live Hub Simulator reflecting natentertainment.org's actual offerings
+// Accurate Live Service Hub Showcase for natentertainment.org
 function NatEntertainmentPreview() {
   const [activeTab, setActiveTab] = useState<"streaming" | "reseller" | "webdesign">("streaming");
-  const [key, setKey] = useState("NAT-PREMIUM-12M-8842");
-
-  const generateKey = () => {
-    const chars = "0123456789ABCDEF";
-    let result = "NAT-STREAM-";
-    for (let i = 0; i < 4; i++) result += chars[Math.floor(Math.random() * chars.length)];
-    setKey(result);
-  };
 
   return (
-    <div className="w-full h-full min-h-[260px] bg-neutral-900 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800 lg:border-b-0 lg:border-r">
+    <div className="w-full h-full min-h-[260px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800 lg:border-b-0 lg:border-r font-sans">
       <div className="flex items-center justify-between">
         <span className="text-[11px] font-mono uppercase tracking-widest text-blue-400 font-bold flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> NAT Entertainment & Services
+          <Sparkles className="w-3.5 h-3.5 text-blue-400" /> NAT Entertainment & Services
         </span>
-        <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
-          ONLINE HUB
+        <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800 font-bold">
+          LIVE PLATFORM
         </span>
       </div>
 
       {/* 3 Core Services Tabs matching natentertainment.org */}
-      <div className="my-3 flex items-center gap-1.5 p-1 bg-neutral-950 rounded-xl border border-neutral-800">
+      <div className="my-3 flex items-center gap-1.5 p-1 bg-neutral-900 rounded-xl border border-neutral-800">
         <button
           onClick={() => setActiveTab("streaming")}
-          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1 ${
+          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1.5 ${
             activeTab === "streaming" ? "bg-blue-600 text-white font-bold" : "text-neutral-400 hover:text-white"
           }`}
         >
@@ -43,7 +35,7 @@ function NatEntertainmentPreview() {
         </button>
         <button
           onClick={() => setActiveTab("reseller")}
-          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1 ${
+          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1.5 ${
             activeTab === "reseller" ? "bg-blue-600 text-white font-bold" : "text-neutral-400 hover:text-white"
           }`}
         >
@@ -51,7 +43,7 @@ function NatEntertainmentPreview() {
         </button>
         <button
           onClick={() => setActiveTab("webdesign")}
-          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1 ${
+          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1.5 ${
             activeTab === "webdesign" ? "bg-blue-600 text-white font-bold" : "text-neutral-400 hover:text-white"
           }`}
         >
@@ -61,48 +53,50 @@ function NatEntertainmentPreview() {
 
       {/* Tab Content Display */}
       {activeTab === "streaming" && (
-        <div className="bg-neutral-950/90 p-3.5 rounded-2xl border border-neutral-800 font-mono space-y-2 text-xs">
-          <div className="text-neutral-400 flex items-center justify-between">
-            <span>Premium IPTV Subscription</span>
-            <span className="text-emerald-400 font-bold">4K / Full HD</span>
+        <div className="bg-neutral-900/90 p-4 rounded-2xl border border-neutral-800 space-y-2 text-xs">
+          <div className="flex items-center justify-between text-neutral-300 font-bold">
+            <span>Premium Streaming Subscriptions</span>
+            <span className="text-emerald-400 text-[11px] font-mono">4K / Full HD</span>
           </div>
-          <div className="flex items-center justify-between gap-2 bg-neutral-900 p-2 rounded-xl border border-neutral-800 text-[11px]">
-            <span className="text-blue-400 font-bold">{key}</span>
-            <button onClick={generateKey} className="px-2 py-0.5 rounded bg-blue-600 text-white hover:bg-blue-500 text-[10px]">
-              Generate Key
-            </button>
-          </div>
+          <p className="text-[11px] text-neutral-400 font-light leading-relaxed">
+            High-stability streaming access with 12,000+ live channels, VOD library, and 99.9% uptime.
+          </p>
         </div>
       )}
 
       {activeTab === "reseller" && (
-        <div className="bg-neutral-950/90 p-3.5 rounded-2xl border border-neutral-800 font-mono space-y-2 text-xs">
-          <div className="text-neutral-400 flex items-center justify-between">
-            <span>Reseller Partner Panel</span>
-            <span className="text-blue-400 font-bold">50 Credits Active</span>
+        <div className="bg-neutral-900/90 p-4 rounded-2xl border border-neutral-800 space-y-2 text-xs">
+          <div className="flex items-center justify-between text-neutral-300 font-bold">
+            <span>Reseller Partner Program</span>
+            <span className="text-blue-400 text-[11px] font-mono">Partner Portal</span>
           </div>
-          <p className="text-[11px] text-neutral-400">
-            Automated customer sub-panel management, bulk credit allocation, and instant line renewals.
+          <p className="text-[11px] text-neutral-400 font-light leading-relaxed">
+            Dedicated reseller dashboard for instant sub-panel management, bulk line activation, and client support.
           </p>
         </div>
       )}
 
       {activeTab === "webdesign" && (
-        <div className="bg-neutral-950/90 p-3.5 rounded-2xl border border-neutral-800 font-mono space-y-2 text-xs">
-          <div className="text-neutral-400 flex items-center justify-between">
-            <span>Custom Web Development</span>
-            <span className="text-amber-400 font-bold">Next.js & Tailwind</span>
+        <div className="bg-neutral-900/90 p-4 rounded-2xl border border-neutral-800 space-y-2 text-xs">
+          <div className="flex items-center justify-between text-neutral-300 font-bold">
+            <span>Custom Web Design & Development</span>
+            <span className="text-amber-400 text-[11px] font-mono">Next.js & React</span>
           </div>
-          <p className="text-[11px] text-neutral-400">
-            Tailored business websites, e-commerce sales engines, responsive UI design, and GTM analytics integration.
+          <p className="text-[11px] text-neutral-400 font-light leading-relaxed">
+            Professional web development, responsive UI/UX, e-commerce integration, and search engine optimization.
           </p>
         </div>
       )}
 
-      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 pt-1">
+      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 pt-2">
         <span>natentertainment.org</span>
-        <a href="https://natentertainment.org/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-semibold">
-          Visit Live Site ↗
+        <a
+          href="https://natentertainment.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-400 hover:text-blue-300 font-bold flex items-center gap-1"
+        >
+          Visit natentertainment.org ↗
         </a>
       </div>
     </div>
@@ -443,7 +437,7 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Projects Grid with Live Interactive Previews (Zero Static Pictures) */}
+      {/* Projects Grid with Live Interactive Previews */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {filteredProjects.map((project, index) => {
           const PreviewComp = project.previewComponent;
