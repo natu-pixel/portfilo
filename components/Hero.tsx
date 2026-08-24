@@ -45,9 +45,9 @@ export default function Hero() {
             className="font-outfit text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 leading-tight"
           />
 
-          {/* Subtitle & Value Proposition */}
+          {/* Subtitle & Value Proposition with accurate natentertainment.org description */}
           <p className="text-neutral-600 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
-            I build performant web applications, automated trading bots, and enterprise platforms like <a href="https://natentertainment.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline font-medium hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">natentertainment.org</a> that build <span className="text-blue-600 font-normal">trust</span> so you can <span className="text-blue-700 font-normal">win customers and close deals.</span>
+            I build performant web applications, automated trading bots, and digital service platforms like <a href="https://natentertainment.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline font-medium hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded">natentertainment.org</a> (Streaming, Reseller Programs & Web Design) that build <span className="text-blue-600 font-normal">trust</span> so you can <span className="text-blue-700 font-normal">win customers and close deals.</span>
           </p>
 
           {/* Action CTAs */}

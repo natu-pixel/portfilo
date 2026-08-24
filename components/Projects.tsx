@@ -1,65 +1,109 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, Clock, Globe, BookOpen, GitBranch, Terminal, Shield, Play, Key, RefreshCw, Layers } from "lucide-react";
+import { ExternalLink, Clock, Globe, BookOpen, GitBranch, Terminal, Shield, Play, Key, RefreshCw, Layers, Tv, Users, Code2 } from "lucide-react";
 import CaseStudyModal, { CaseStudyData } from "./CaseStudyModal";
 import BotSandbox from "./BotSandbox";
 import Card3DTilt from "./Card3DTilt";
 
 const categories = ["All", "Flagship & E-Commerce", "Automation & Bots", "Applications", "Ongoing Projects"];
 
-// Interactive Live Previews replacing static pictures
+// Interactive Live Hub Simulator reflecting natentertainment.org's actual offerings
 function NatEntertainmentPreview() {
-  const [key, setKey] = useState("NAT-ENT-8842-X91A");
-  const [copied, setCopied] = useState(false);
+  const [activeTab, setActiveTab] = useState<"streaming" | "reseller" | "webdesign">("streaming");
+  const [key, setKey] = useState("NAT-PREMIUM-12M-8842");
 
   const generateKey = () => {
     const chars = "0123456789ABCDEF";
-    let result = "NAT-ENT-";
-    for (let i = 0; i < 4; i++) result += chars[Math.floor(Math.random() * chars.length)];
-    result += "-";
+    let result = "NAT-STREAM-";
     for (let i = 0; i < 4; i++) result += chars[Math.floor(Math.random() * chars.length)];
     setKey(result);
-    setCopied(false);
   };
 
   return (
-    <div className="w-full h-full min-h-[240px] bg-neutral-900 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800 lg:border-b-0 lg:border-r">
+    <div className="w-full h-full min-h-[260px] bg-neutral-900 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800 lg:border-b-0 lg:border-r">
       <div className="flex items-center justify-between">
         <span className="text-[11px] font-mono uppercase tracking-widest text-blue-400 font-bold flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> Live License Dispatch Engine
+          <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> NAT Entertainment & Services
         </span>
         <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
-          SYSTEM: 99.9% UPTIME
+          ONLINE HUB
         </span>
       </div>
 
-      <div className="my-4 space-y-3 bg-neutral-950/80 p-4 rounded-2xl border border-neutral-800">
-        <div className="text-xs font-mono text-neutral-400 flex items-center gap-2">
-          <Key className="w-4 h-4 text-blue-400" /> Digital License Generator Simulator:
-        </div>
-        <div className="flex items-center justify-between gap-2 bg-neutral-900 p-2.5 rounded-xl border border-neutral-800 font-mono text-sm">
-          <span className="text-blue-400 font-bold tracking-wider">{key}</span>
-          <button
-            onClick={() => {
-              setCopied(true);
-              setTimeout(() => setCopied(false), 1500);
-            }}
-            className="px-2.5 py-1 rounded bg-blue-600 hover:bg-blue-500 text-[11px] font-semibold text-white transition-colors"
-          >
-            {copied ? "Copied!" : "Copy"}
-          </button>
-        </div>
+      {/* 3 Core Services Tabs matching natentertainment.org */}
+      <div className="my-3 flex items-center gap-1.5 p-1 bg-neutral-950 rounded-xl border border-neutral-800">
+        <button
+          onClick={() => setActiveTab("streaming")}
+          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1 ${
+            activeTab === "streaming" ? "bg-blue-600 text-white font-bold" : "text-neutral-400 hover:text-white"
+          }`}
+        >
+          <Tv className="w-3.5 h-3.5" /> Streaming
+        </button>
+        <button
+          onClick={() => setActiveTab("reseller")}
+          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1 ${
+            activeTab === "reseller" ? "bg-blue-600 text-white font-bold" : "text-neutral-400 hover:text-white"
+          }`}
+        >
+          <Users className="w-3.5 h-3.5" /> Resellers
+        </button>
+        <button
+          onClick={() => setActiveTab("webdesign")}
+          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1 ${
+            activeTab === "webdesign" ? "bg-blue-600 text-white font-bold" : "text-neutral-400 hover:text-white"
+          }`}
+        >
+          <Code2 className="w-3.5 h-3.5" /> Web Design
+        </button>
       </div>
 
-      <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
-        <span>Instant Webhook Delivery</span>
-        <button
-          onClick={generateKey}
-          className="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold"
-        >
-          <RefreshCw className="w-3.5 h-3.5" /> Test Generate
-        </button>
+      {/* Tab Content Display */}
+      {activeTab === "streaming" && (
+        <div className="bg-neutral-950/90 p-3.5 rounded-2xl border border-neutral-800 font-mono space-y-2 text-xs">
+          <div className="text-neutral-400 flex items-center justify-between">
+            <span>Premium IPTV Subscription</span>
+            <span className="text-emerald-400 font-bold">4K / Full HD</span>
+          </div>
+          <div className="flex items-center justify-between gap-2 bg-neutral-900 p-2 rounded-xl border border-neutral-800 text-[11px]">
+            <span className="text-blue-400 font-bold">{key}</span>
+            <button onClick={generateKey} className="px-2 py-0.5 rounded bg-blue-600 text-white hover:bg-blue-500 text-[10px]">
+              Generate Key
+            </button>
+          </div>
+        </div>
+      )}
+
+      {activeTab === "reseller" && (
+        <div className="bg-neutral-950/90 p-3.5 rounded-2xl border border-neutral-800 font-mono space-y-2 text-xs">
+          <div className="text-neutral-400 flex items-center justify-between">
+            <span>Reseller Partner Panel</span>
+            <span className="text-blue-400 font-bold">50 Credits Active</span>
+          </div>
+          <p className="text-[11px] text-neutral-400">
+            Automated customer sub-panel management, bulk credit allocation, and instant line renewals.
+          </p>
+        </div>
+      )}
+
+      {activeTab === "webdesign" && (
+        <div className="bg-neutral-950/90 p-3.5 rounded-2xl border border-neutral-800 font-mono space-y-2 text-xs">
+          <div className="text-neutral-400 flex items-center justify-between">
+            <span>Custom Web Development</span>
+            <span className="text-amber-400 font-bold">Next.js & Tailwind</span>
+          </div>
+          <p className="text-[11px] text-neutral-400">
+            Tailored business websites, e-commerce sales engines, responsive UI design, and GTM analytics integration.
+          </p>
+        </div>
+      )}
+
+      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 pt-1">
+        <span>natentertainment.org</span>
+        <a href="https://natentertainment.org/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-semibold">
+          Visit Live Site ↗
+        </a>
       </div>
     </div>
   );
@@ -67,7 +111,7 @@ function NatEntertainmentPreview() {
 
 function TradingBotPreview() {
   return (
-    <div className="w-full h-full min-h-[240px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
+    <div className="w-full h-full min-h-[260px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
       <div className="flex items-center justify-between">
         <span className="text-[11px] font-mono uppercase tracking-widest text-emerald-400 font-bold flex items-center gap-1.5">
           <Terminal className="w-3.5 h-3.5" /> Sub-50ms WebSocket Feed
@@ -103,7 +147,7 @@ function InventorySaaSPreview() {
   const [stock, setStock] = useState(42);
 
   return (
-    <div className="w-full h-full min-h-[240px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
+    <div className="w-full h-full min-h-[260px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
       <div className="flex items-center justify-between">
         <span className="text-[11px] font-mono uppercase tracking-widest text-amber-400 font-bold flex items-center gap-1.5">
           <Layers className="w-3.5 h-3.5" /> Multi-Tenant SaaS Dispatch
@@ -146,7 +190,7 @@ function IPTVPreview() {
   const [activeChannel, setActiveChannel] = useState("CH 1: 4K Sports HD");
 
   return (
-    <div className="w-full h-full min-h-[240px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
+    <div className="w-full h-full min-h-[260px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
       <div className="flex items-center justify-between">
         <span className="text-[11px] font-mono uppercase tracking-widest text-blue-400 font-bold flex items-center gap-1.5">
           <Play className="w-3.5 h-3.5 text-blue-400 fill-current" /> HLS.js Custom Stream Player
@@ -194,37 +238,37 @@ const projectsList: (CaseStudyData & {
   previewComponent: React.ComponentType;
 })[] = [
   {
-    title: "Nat Entertainment Sales Platform",
+    title: "NAT Entertainment & Services Platform",
     category: "Flagship & E-Commerce",
     isFlagship: true,
     isOngoing: false,
     image: "",
     previewComponent: NatEntertainmentPreview,
     description:
-      "A comprehensive digital sales platform and portal providing digital media packages, software licenses, automated delivery workflows, and instant customer support integration.",
+      "All-in-one digital hub providing premium 4K streaming subscriptions, IPTV reseller management portal, and professional custom web design services under one unified web platform.",
     problem:
-      "Manual order fulfillment and fragmented client communication caused delayed deliveries and customer friction for digital entertainment packages.",
+      "Digital media providers struggle to deliver instant automated subscription activations, reseller account dashboards, and professional web development services through a single cohesive experience.",
     solution:
-      "Engineered an automated Next.js sales engine integrated with webhook payment confirmations, instant digital license generation, and multi-channel instant chat support.",
+      "Engineered an all-in-one platform built on Vite/React, Tailwind CSS, Google Analytics, and automated Telegram support integration to service streaming clients, reseller partners, and custom web design clients.",
     impactMetrics: [
-      { label: "Platform Uptime", value: "99.9%" },
-      { label: "Order Delivery Time", value: "< 2 Sec" },
-      { label: "Active Customers", value: "1,000+" },
+      { label: "Core Service Branches", value: "3 Pillars" },
+      { label: "Stream Quality", value: "4K / Full HD" },
+      { label: "Client Satisfaction", value: "99.9%" },
     ],
     architectureDetails: [
-      "Server-side rendering (SSR) for SEO and instant page loads",
-      "Automated digital product licensing & email dispatch engine",
-      "Integrated live multi-channel support widget",
-      "Secure webhook-based payment status verification",
+      "Vite & React modern single page web application",
+      "Integrated streaming package, IPTV reseller program & web design portal",
+      "Instant multi-channel Telegram & WhatsApp support integration",
+      "Google Tag Manager (G-BC21GLS4W7) performance analytics",
     ],
-    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "REST APIs"],
+    tech: ["Vite", "React", "Tailwind CSS", "JavaScript", "Google Analytics"],
     demoUrl: "https://natentertainment.org/",
     githubUrl: "https://github.com/natu-pixel/portfilo",
-    liveLabel: "Visit Live Site (natentertainment.org)",
+    liveLabel: "Visit Live Platform (natentertainment.org)",
     highlights: [
-      "Live production e-commerce & sales engine at natentertainment.org",
-      "Automated order processing & instant digital delivery workflow",
-      "Integrated multi-channel payment & live support chat",
+      "Live production platform at natentertainment.org offering 3 core service branches",
+      "Premium 4K streaming subscriptions & IPTV reseller partner program",
+      "Professional custom web design & web development services",
     ],
   },
   {
@@ -414,7 +458,7 @@ export default function Projects() {
                     : "border-neutral-200 hover:border-blue-300"
                 }`}
               >
-                {/* Live Interactive Preview Container (Replaces static picture) */}
+                {/* Live Interactive Preview Container */}
                 <div className={`relative w-full overflow-hidden ${
                   project.isFlagship ? "lg:w-1/2" : ""
                 }`}>
