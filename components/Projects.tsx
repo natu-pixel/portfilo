@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, Clock, Globe, BookOpen, GitBranch, Terminal, Shield, Play, Layers, Tv, Users, Code2, Sparkles } from "lucide-react";
+import { ExternalLink, Clock, Globe, BookOpen, GitBranch, Terminal, Shield, Play, Layers, Tv, Users, Code2, Sparkles, Flame, Trophy, Utensils } from "lucide-react";
 import CaseStudyModal, { CaseStudyData } from "./CaseStudyModal";
 import BotSandbox from "./BotSandbox";
 import Card3DTilt from "./Card3DTilt";
 
 const categories = ["All", "Flagship & E-Commerce", "Automation & Bots", "Applications", "Ongoing Projects"];
 
-// Accurate Live Service Hub Showcase for natentertainment.org
+// Interactive Live Hub Showcase for natentertainment.org
 function NatEntertainmentPreview() {
   const [activeTab, setActiveTab] = useState<"streaming" | "reseller" | "webdesign">("streaming");
 
@@ -97,6 +97,101 @@ function NatEntertainmentPreview() {
           className="text-blue-400 hover:text-blue-300 font-bold flex items-center gap-1"
         >
           Visit natentertainment.org ↗
+        </a>
+      </div>
+    </div>
+  );
+}
+
+// Interactive Preview for Shega Events (shega-two.vercel.app)
+function ShegaEventsPreview() {
+  const [world, setWorld] = useState<"bermel" | "etfc" | "harar">("bermel");
+
+  return (
+    <div className="w-full h-full min-h-[260px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
+      <div className="flex items-center justify-between">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-purple-400 font-bold flex items-center gap-1.5">
+          <Sparkles className="w-3.5 h-3.5 text-purple-400" /> Shega Events & Experience
+        </span>
+        <span className="text-[10px] font-mono text-purple-300 bg-purple-950/80 px-2 py-0.5 rounded border border-purple-800 font-bold">
+          3D CAMERA JOURNEY
+        </span>
+      </div>
+
+      {/* World Selector Tabs */}
+      <div className="my-3 flex items-center gap-1.5 p-1 bg-neutral-900 rounded-xl border border-neutral-800">
+        <button
+          onClick={() => setWorld("bermel")}
+          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1 ${
+            world === "bermel" ? "bg-purple-600 text-white font-bold" : "text-neutral-400 hover:text-white"
+          }`}
+        >
+          <Flame className="w-3.5 h-3.5" /> Bermel Fest
+        </button>
+        <button
+          onClick={() => setWorld("etfc")}
+          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1 ${
+            world === "etfc" ? "bg-purple-600 text-white font-bold" : "text-neutral-400 hover:text-white"
+          }`}
+        >
+          <Trophy className="w-3.5 h-3.5" /> ETFC MMA
+        </button>
+        <button
+          onClick={() => setWorld("harar")}
+          className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-mono transition-colors flex items-center justify-center gap-1 ${
+            world === "harar" ? "bg-purple-600 text-white font-bold" : "text-neutral-400 hover:text-white"
+          }`}
+        >
+          <Utensils className="w-3.5 h-3.5" /> Harar Fest
+        </button>
+      </div>
+
+      {/* Dynamic Content Preview */}
+      {world === "bermel" && (
+        <div className="bg-neutral-900/90 p-4 rounded-2xl border border-neutral-800 space-y-2 text-xs">
+          <div className="flex items-center justify-between text-neutral-300 font-bold">
+            <span>Bermel Fest — Open-Format Festival</span>
+            <span className="text-purple-400 font-mono text-[11px]">23+ Editions</span>
+          </div>
+          <p className="text-[11px] text-neutral-400 font-light leading-relaxed">
+            Flagship music festival uniting local & international artists across Afrobeats, Dancehall, and EDM.
+          </p>
+        </div>
+      )}
+
+      {world === "etfc" && (
+        <div className="bg-neutral-900/90 p-4 rounded-2xl border border-neutral-800 space-y-2 text-xs">
+          <div className="flex items-center justify-between text-neutral-300 font-bold">
+            <span>ETFC — Ethiopian Top Fighting Championship</span>
+            <span className="text-amber-400 font-mono text-[11px]">MMA Platform</span>
+          </div>
+          <p className="text-[11px] text-neutral-400 font-light leading-relaxed">
+            Dedicated big-stage production platform for Ethiopian mixed martial arts fighters & fight nights.
+          </p>
+        </div>
+      )}
+
+      {world === "harar" && (
+        <div className="bg-neutral-900/90 p-4 rounded-2xl border border-neutral-800 space-y-2 text-xs">
+          <div className="flex items-center justify-between text-neutral-300 font-bold">
+            <span>Harar & Sengaw — Meat & Cultural Fest</span>
+            <span className="text-emerald-400 font-mono text-[11px]">Cultural Tour</span>
+          </div>
+          <p className="text-[11px] text-neutral-400 font-light leading-relaxed">
+            Outdoor celebration of Ethiopian meat culture and regional roadshows in Gondar, Dire Dawa, and Harar.
+          </p>
+        </div>
+      )}
+
+      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 pt-2">
+        <span>shega-two.vercel.app</span>
+        <a
+          href="https://shega-two.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-purple-400 hover:text-purple-300 font-bold flex items-center gap-1"
+        >
+          Launch 3D Journey ↗
         </a>
       </div>
     </div>
@@ -266,6 +361,41 @@ const projectsList: (CaseStudyData & {
     ],
   },
   {
+    title: "Shega Events — Interactive Experience Platform",
+    category: "Ongoing Projects",
+    isFlagship: false,
+    isOngoing: true,
+    progressPercent: 90,
+    image: "",
+    previewComponent: ShegaEventsPreview,
+    description:
+      "An immersive, 3D camera journey web platform for Shega Events & Promotion — Addis Ababa's leading event management company behind Bermel Fest, ETFC MMA, and Harar & Sengaw.",
+    problem:
+      "Traditional event platforms rely on static galleries that fail to capture the high-energy, multi-world atmosphere of live music festivals and combat sports nights.",
+    solution:
+      "Built a Next.js 16 WebGL 3D interactive camera journey allowing visitors to scroll smoothly through festival worlds, view event moments, and build custom event briefs.",
+    impactMetrics: [
+      { label: "Festival Editions", value: "23+ Events" },
+      { label: "3D Camera Journey", value: "Interactive" },
+      { label: "Event Pillars", value: "3 Worlds" },
+    ],
+    architectureDetails: [
+      "Next.js 16 App Router & Three.js 3D WebGL camera journey",
+      "Custom 3D GLTF scene models & scroll-triggered camera interpolation",
+      "Interactive event gallery with Instagram API integration",
+      "Custom event brief builder form for client inquiries",
+    ],
+    tech: ["Next.js 16", "Three.js", "React", "Tailwind CSS", "Framer Motion"],
+    demoUrl: "https://shega-two.vercel.app/",
+    githubUrl: "https://github.com/natu-pixel/portfilo",
+    liveLabel: "Launch 3D Journey (shega-two.vercel.app)",
+    highlights: [
+      "Live web platform for Shega Events & Promotion (Addis Ababa, Est. 2019)",
+      "Interactive 3D camera journey through Bermel Fest, ETFC, and Harar & Sengaw",
+      "Built-in event brief creator and interactive moment galleries",
+    ],
+  },
+  {
     title: "Algorithmic Trading Bot Engine",
     category: "Automation & Bots",
     isFlagship: false,
@@ -432,7 +562,7 @@ export default function Projects() {
                 : "bg-neutral-100 text-neutral-600 hover:text-neutral-900 border border-neutral-200"
             }`}
           >
-            {cat} {cat === "Ongoing Projects" && "(1 Active)"}
+            {cat} {cat === "Ongoing Projects" && "(2 Active)"}
           </button>
         ))}
       </div>
