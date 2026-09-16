@@ -1,12 +1,13 @@
 "use client";
 
-import { X, ExternalLink, CheckCircle2, Cpu, ShieldCheck } from "lucide-react";
+import { X, ExternalLink, CheckCircle2, Cpu, ShieldCheck, Play } from "lucide-react";
 import Image from "next/image";
 
 export interface CaseStudyData {
   title: string;
   category: string;
-  image: string;
+  image?: string;
+  videoUrl?: string;
   description: string;
   highlights?: string[];
   problem: string;
@@ -54,11 +55,23 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
           {project.title}
         </h2>
 
-        {/* Hero Image */}
-        <div className="relative w-full h-[220px] sm:h-[320px] rounded-2xl overflow-hidden mb-8 border border-neutral-200">
-          <Image src={project.image} alt={project.title} fill className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-        </div>
+        {/* Video Embed or Hero Image */}
+        {project.videoUrl ? (
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-8 border border-neutral-200 shadow-lg bg-black">
+            <iframe
+              src={project.videoUrl}
+              title={project.title}
+              className="w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        ) : project.image ? (
+          <div className="relative w-full h-[220px] sm:h-[320px] rounded-2xl overflow-hidden mb-8 border border-neutral-200">
+            <Image src={project.image} alt={project.title} fill className="object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          </div>
+        ) : null}
 
         {/* Impact Metrics Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
@@ -98,54 +111,30 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
             {project.architectureDetails.map((detail, idx) => (
               <li key={idx} className="flex items-center gap-2 p-2.5 rounded-xl bg-neutral-50 border border-neutral-200">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                <span>{detail}</span>
+                {detail}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Tech Pills */}
-        <div className="mb-8">
-          <div className="text-xs font-mono text-neutral-500 uppercase mb-2">Technologies Used</div>
+        {/* Modal Actions */}
+        <div className="pt-6 border-t border-neutral-200 flex flex-wrap items-center justify-between gap-4">
           <div className="flex flex-wrap gap-2">
             {project.tech.map((t, idx) => (
-              <span key={idx} className="px-3 py-1 rounded-lg bg-blue-50 text-xs font-mono text-blue-700 border border-blue-200">
+              <span key={idx} className="px-3 py-1 rounded-lg bg-neutral-100 text-xs font-mono text-neutral-700 border border-neutral-200">
                 {t}
               </span>
             ))}
           </div>
-        </div>
 
-        {/* Footer Actions */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-neutral-200">
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-colors shadow-md shadow-blue-600/20"
-            >
-              Open Live Link <ExternalLink className="w-4 h-4" />
-            </a>
-
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-800 font-medium text-sm border border-neutral-200 transition-colors"
-              >
-                GitHub Repository <ExternalLink className="w-4 h-4" />
-              </a>
-            )}
-          </div>
-
-          <button
-            onClick={onClose}
-            className="px-4 py-2 rounded-xl text-xs font-mono text-neutral-500 hover:text-neutral-900"
+          <a
+            href={project.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors shadow-md shadow-blue-600/20"
           >
-            Close Modal
-          </button>
+            Launch Live Platform <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
 
       </div>
