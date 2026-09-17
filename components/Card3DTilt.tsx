@@ -14,7 +14,6 @@ export default function Card3DTilt({
   spotlightColor = "rgba(37, 99, 235, 0.12)",
 }: Card3DTiltProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [transform, setTransform] = useState("perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)");
   const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
@@ -25,14 +24,6 @@ export default function Card3DTilt({
     const y = e.clientY - rect.top;
 
     setSpotlightPos({ x, y });
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / centerY) * -8; // -8deg max tilt
-    const rotateY = ((x - centerX) / centerX) * 8;   // 8deg max tilt
-
-    setTransform(`perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`);
   };
 
   const handleMouseEnter = () => {
@@ -41,7 +32,6 @@ export default function Card3DTilt({
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)");
   };
 
   return (
@@ -50,12 +40,7 @@ export default function Card3DTilt({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={{
-        transform,
-        transition: "transform 0.15s ease-out",
-        transformStyle: "preserve-3d",
-      }}
-      className={`relative overflow-hidden will-change-transform ${className}`}
+      className={`relative overflow-hidden ${className}`}
     >
       {/* Radial Spotlight Glow Overlay (ReactBits Inspiration) */}
       <div

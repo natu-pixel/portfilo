@@ -212,6 +212,44 @@ function ShegaEventsPreview() {
   );
 }
 
+function QeeroPreview() {
+  return (
+    <div className="w-full h-full min-h-[260px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-emerald-400 font-bold flex items-center gap-1.5">
+          <Globe className="w-3.5 h-3.5 text-emerald-400" /> Qeero — Visual Communication
+        </span>
+        <span className="text-[10px] font-mono text-emerald-300 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800 font-bold">
+          2D · 3D · PRINT · DIGITAL
+        </span>
+      </div>
+
+      {/* Embedded YouTube Showcase Reel */}
+      <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-neutral-800 bg-black shadow-lg my-1">
+        <iframe
+          src="https://www.youtube.com/embed/XjzneuyLnIc?rel=0"
+          title="Qeero Agency Showcase Video"
+          className="w-full h-full border-0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      </div>
+
+      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 pt-2">
+        <span>qeero.fr</span>
+        <a
+          href="https://qeero.fr/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1"
+        >
+          Visit Live Site ↗
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function TradingBotPreview() {
   return (
     <div className="w-full h-full min-h-[260px] bg-neutral-950 text-white p-6 flex flex-col justify-between relative overflow-hidden border-b border-neutral-800">
@@ -408,6 +446,41 @@ const projectsList: (CaseStudyData & {
       "Live web platform for Shega Events & Promotion (Addis Ababa, Est. 2019)",
       "Interactive 3D camera journey & video reel (5pgd6HHlFeg)",
       "Built-in event brief creator and interactive moment galleries",
+    ],
+  },
+  {
+    title: "Qeero — Visual Communication Agency Platform",
+    category: "Applications",
+    isFlagship: false,
+    isOngoing: false,
+    image: "",
+    videoUrl: "https://www.youtube.com/embed/XjzneuyLnIc",
+    previewComponent: QeeroPreview,
+    description:
+      "Modern web platform and video showcase for Qeero, a French visual communication agency delivering 2D, 3D, print, and digital creative services across France.",
+    problem:
+      "Creative agencies need a fast, polished online presence that showcases motion and visual work convincingly — static portfolio pages fail to convey the quality of animated and 3D production.",
+    solution:
+      "Built a fast Vite/React single page application with strong SEO foundations (canonical URLs, sitemap, Open Graph), Plus Jakarta Sans branding, Cloudflare analytics, and an embedded video showcase reel.",
+    impactMetrics: [
+      { label: "Service Pillars", value: "2D / 3D / Print / Digital" },
+      { label: "Coverage", value: "All of France" },
+      { label: "Delivery", value: "Vite SPA" },
+    ],
+    architectureDetails: [
+      "Vite & React single page application with optimized asset bundling",
+      "SEO-ready: canonical URL, sitemap.xml, Open Graph & Twitter cards",
+      "Cloudflare Insights analytics beacon integration",
+      "Embedded YouTube video showcase reel (XjzneuyLnIc)",
+    ],
+    tech: ["Vite", "React", "TypeScript", "Tailwind CSS", "Cloudflare"],
+    demoUrl: "https://qeero.fr/",
+    githubUrl: "https://github.com/natu-pixel/portfilo",
+    liveLabel: "Visit Live Platform (qeero.fr)",
+    highlights: [
+      "Live production platform for a French visual communication agency",
+      "2D, 3D, print & digital creative services showcase",
+      "Embedded video showcase reel (XjzneuyLnIc)",
     ],
   },
   {
