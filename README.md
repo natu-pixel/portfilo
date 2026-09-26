@@ -20,6 +20,14 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## About profile views
+
+The About section opens on **Why choose me**, a proof-driven introduction to NAT Entertainment, Qeero, and the explicitly in-progress Shega project. **Level Up** and **Full Chronology** remain available as alternative profile views.
+
+Each project has a live-site or preview link. **Explore the case studies** scrolls to the existing project collection, while **Start a conversation by email** opens an email addressed to `info@natentertainment.org`. The email link does not use or change the contact form's submission behavior.
+
+The view content and controls live in [StoryArcSwitcher](components/StoryArcSwitcher.tsx), embedded by [About](components/About.tsx). Keep project descriptions and development-status labels consistent with [Projects](components/Projects.tsx); do not add unsupported outcome metrics.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

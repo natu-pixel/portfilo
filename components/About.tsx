@@ -28,7 +28,6 @@ export default function About() {
         </Card3DTilt>
       </div>
 
-      {/* Interactive Story Arc Switcher (Speed Run | Level Up | Full Chronology) */}
       <StoryArcSwitcher />
 
       {/* 3 Pillar Cards wrapped in 3D Perspective Tilt */}

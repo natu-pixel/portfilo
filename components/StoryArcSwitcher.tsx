@@ -1,91 +1,146 @@
 "use client";
 
 import { useState } from "react";
-import { Zap, Award, Calendar, CheckCircle2, Terminal, Server, Code2, Flame } from "lucide-react";
+import { Award, Calendar, CheckCircle2, Terminal, Server, Code2, Flame, ArrowUpRight, Mail } from "lucide-react";
 import Card3DTilt from "./Card3DTilt";
 
-type StoryMode = "speedrun" | "levelup" | "chronology";
+type StoryMode = "whyme" | "levelup" | "chronology";
+
+const proofPoints = [
+  {
+    project: "NAT Entertainment",
+    title: "I build around real business needs.",
+    description:
+      "NAT Entertainment brings streaming subscriptions, reseller services, and web design into one platform. It's a practical example of turning several customer needs into one usable product.",
+    href: "https://natentertainment.org/",
+    linkLabel: "Explore NAT Entertainment",
+    inProgress: false,
+  },
+  {
+    project: "Qeero",
+    title: "I match the experience to its audience.",
+    description:
+      "Qeero showcases a visual communication agency's 2D, 3D, print, and digital work. Its visual-first presentation keeps the agency's work at the center of the experience.",
+    href: "https://qeero.fr/",
+    linkLabel: "Explore Qeero",
+    inProgress: false,
+  },
+  {
+    project: "Shega",
+    title: "I make the thinking behind the work visible.",
+    description:
+      "For Shega, I'm building an interactive event experience with Next.js and Three.js. The preview and case study offer a look at the approach while the project is still in development.",
+    href: "https://shega-two.vercel.app/",
+    linkLabel: "Preview Shega",
+    inProgress: true,
+  },
+];
 
 export default function StoryArcSwitcher() {
-  const [activeMode, setActiveMode] = useState<StoryMode>("speedrun");
+  const [activeMode, setActiveMode] = useState<StoryMode>("whyme");
 
   return (
     <div className="w-full my-8">
       
-      {/* Mode Switcher Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-8 p-1.5 rounded-2xl bg-neutral-100 border border-neutral-200 max-w-xl mx-auto">
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-8 p-1.5 rounded-2xl bg-neutral-100 border border-neutral-200 max-w-xl mx-auto" role="group" aria-label="About profile views">
         <button
-          onClick={() => setActiveMode("speedrun")}
-          className={`flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2 ${
-            activeMode === "speedrun"
+          type="button"
+          onClick={() => setActiveMode("whyme")}
+          aria-pressed={activeMode === "whyme"}
+          className={`flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 ${
+            activeMode === "whyme"
               ? "bg-blue-600 text-white shadow-md shadow-blue-600/20"
               : "text-neutral-600 hover:text-neutral-900"
           }`}
         >
-          <Zap className="w-3.5 h-3.5" /> ⚡ Speed Run
+          <Terminal className="w-3.5 h-3.5" aria-hidden="true" /> Why choose me
         </button>
 
         <button
+          type="button"
           onClick={() => setActiveMode("levelup")}
-          className={`flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2 ${
+          aria-pressed={activeMode === "levelup"}
+          className={`flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 ${
             activeMode === "levelup"
               ? "bg-blue-600 text-white shadow-md shadow-blue-600/20"
               : "text-neutral-600 hover:text-neutral-900"
           }`}
         >
-          <Award className="w-3.5 h-3.5" /> 🎮 Level Up
+          <Award className="w-3.5 h-3.5" aria-hidden="true" /> 🎮 Level Up
         </button>
 
         <button
+          type="button"
           onClick={() => setActiveMode("chronology")}
-          className={`flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2 ${
+          aria-pressed={activeMode === "chronology"}
+          className={`flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 ${
             activeMode === "chronology"
               ? "bg-blue-600 text-white shadow-md shadow-blue-600/20"
               : "text-neutral-600 hover:text-neutral-900"
           }`}
         >
-          <Calendar className="w-3.5 h-3.5" /> 📜 Full Chronology
+          <Calendar className="w-3.5 h-3.5" aria-hidden="true" /> 📜 Full Chronology
         </button>
       </div>
 
-      {/* Mode 1: Speed Run */}
-      {activeMode === "speedrun" && (
+      {activeMode === "whyme" && (
         <Card3DTilt>
-          <div className="p-8 rounded-3xl bg-neutral-900 text-white border border-neutral-800 shadow-xl space-y-6">
-            <div className="flex items-center justify-between border-b border-neutral-800 pb-4">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-blue-500 animate-pulse"></span>
-                <span className="text-xs font-mono text-blue-400 uppercase tracking-widest font-semibold">30-Second Recruiter Summary</span>
-              </div>
-              <span className="text-xs font-mono text-neutral-500">Read Time: 30s</span>
+          <section className="p-6 sm:p-8 rounded-3xl bg-neutral-900 text-white border border-neutral-800 shadow-xl space-y-8" aria-labelledby="why-me-heading">
+            <div className="max-w-2xl space-y-3">
+              <span className="text-xs font-mono text-blue-300 uppercase tracking-widest font-semibold">Why choose me</span>
+              <h3 id="why-me-heading" className="font-outfit text-2xl sm:text-3xl font-bold leading-tight">
+                More than a skills list. <span className="text-blue-300">Work you can explore.</span>
+              </h3>
+              <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-light">
+                A resume can list technologies. My projects show how I use them to solve different problems. Explore the work, read the thinking behind it, and let&apos;s talk about what your team needs.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-4 rounded-2xl bg-neutral-800/60 border border-neutral-700/50 space-y-2">
-                <div className="text-xs font-mono text-neutral-400 uppercase">Core Discipline</div>
-                <div className="text-sm font-bold text-white">Full-Stack & Trading Automation</div>
-                <p className="text-xs text-neutral-400 leading-relaxed font-light">
-                  Next.js 16 App Router, TypeScript, Python WebSockets, and sub-50ms execution engines.
-                </p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {proofPoints.map((point) => (
+                <article key={point.project} className="flex flex-col p-5 rounded-2xl bg-neutral-800/60 border border-neutral-700">
+                  <span className={`self-start mb-4 px-2 py-1 rounded-md text-xs font-mono font-medium ${
+                    point.inProgress
+                      ? "bg-amber-400/10 text-amber-300 border border-amber-400/30"
+                      : "bg-blue-400/10 text-blue-300 border border-blue-400/30"
+                  }`}>
+                    {point.inProgress ? "In progress" : "Live project"}
+                  </span>
+                  <h4 className="text-base font-semibold text-white">{point.title}</h4>
+                  <p className="mt-3 text-sm font-semibold text-blue-300">{point.project}</p>
+                  <p className="mt-2 flex-1 text-sm text-neutral-300 leading-relaxed font-light">{point.description}</p>
+                  <a
+                    href={point.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-1.5 self-start rounded text-sm font-semibold text-blue-300 hover:text-blue-200 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-neutral-900"
+                  >
+                    {point.linkLabel} <ArrowUpRight className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+                  </a>
+                </article>
+              ))}
+            </div>
 
-              <div className="p-4 rounded-2xl bg-neutral-800/60 border border-neutral-700/50 space-y-2">
-                <div className="text-xs font-mono text-neutral-400 uppercase">Infrastructure & Hardware</div>
-                <div className="text-sm font-bold text-white">Networking & Diagnostics</div>
-                <p className="text-xs text-neutral-400 leading-relaxed font-light">
-                  Certified in Router/Switch configurations, LAN security, and hardware diagnostics.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-neutral-800/60 border border-neutral-700/50 space-y-2">
-                <div className="text-xs font-mono text-neutral-400 uppercase">Flagship Business</div>
-                <div className="text-sm font-bold text-blue-400">Founder @ natentertainment.org</div>
-                <p className="text-xs text-neutral-400 leading-relaxed font-light">
-                  Live production sales portal with automated digital licensing and high uptime.
-                </p>
+            <div className="border-t border-neutral-700 pt-6 space-y-4">
+              <p className="text-base font-medium text-white">
+                Have a challenge on your team? Let&apos;s talk through it.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="mailto:info@natentertainment.org"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-neutral-900"
+                >
+                  <Mail className="w-4 h-4 flex-shrink-0" aria-hidden="true" /> Start a conversation by email
+                </a>
+                <a
+                  href="#projects"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 py-3 rounded-xl bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 text-white text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-neutral-900"
+                >
+                  Explore the case studies <ArrowUpRight className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+                </a>
               </div>
             </div>
-          </div>
+          </section>
         </Card3DTilt>
       )}
 
